@@ -67,16 +67,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EmployeeView.aspx" />
+    <Content Include="Models\GUI\EmployeeView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmployeeView.aspx.cs">
+    <Compile Include="Models\GUI\EmployeeView.aspx.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EmployeeView.aspx.designer.cs">
+    <Compile Include="Models\GUI\EmployeeView.aspx.designer.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
