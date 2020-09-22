@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ToDoList.Models.DAL
+namespace ToDoList.BLL
 {
-    public class EmployeeDAL
+    public class EmployeeBLL
     {
     }
 }

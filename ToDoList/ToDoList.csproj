@@ -67,25 +67,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\GUI\EmployeeView.aspx" />
+    <Content Include="GUI\EmployeeView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\GUI\EmployeeView.aspx.cs">
+    <Compile Include="GUI\EmployeeView.aspx.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Models\GUI\EmployeeView.aspx.designer.cs">
+    <Compile Include="GUI\EmployeeView.aspx.designer.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BLL\EmployeeBLL.cs" />
-    <Compile Include="Models\DAL\EmployeeDAL.cs" />
-    <Compile Include="Models\DAL\SQLHelper.cs" />
-    <Compile Include="Models\Entity\Employee.cs" />
+    <Compile Include="BLL\EmployeeBLL.cs" />
+    <Compile Include="DAL\EmployeeDAL.cs" />
+    <Compile Include="DAL\SQLHelper.cs" />
+    <Compile Include="Entity\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
