@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ToDoList.GUI.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <%--<title></title>--%>
+    <link href="../css/my.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>  
+    <%--<nav id="nav">  
+    <ul>  
+        <li><a href="home.aspx">Home</a></li>  
+        <li><a href="#">About</a></li>  
+        <li><a href="#">Article</a></li>  
+        <li><a href="#">Contact</a></li>  
+    </ul>  
+</nav>  --%> 
+    <form runat="server">
+     <asp:Menu ID="Menu1" runat="server" 
+         Orientation="Horizontal" 
+         ForeColor="White" 
+         Height="100%" 
+         Width="100%" 
+         BackColor="#006699" 
+         Font-Names="Yu Gothic Light" 
+         Font-Size="50px">
+        <Items>
+            <asp:MenuItem Text="EMPLOYEE" Value="Employee" Selected="True"></asp:MenuItem>
+            <asp:MenuItem Text="TASK" Value="Task"></asp:MenuItem>
+        </Items>
+
+    </asp:Menu> 
+        </form>
+
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">  
+    </asp:ContentPlaceHolder>  
+</body>  
+<%--<footer id="footer">  
+    copyright @c# corner  
+</footer>  --%>
+</html>  
+
