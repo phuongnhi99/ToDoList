@@ -102,7 +102,7 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@ID",employee.ID);
             cmd.ExecuteNonQuery();
         }
-        public int checklogin(string Email,string Password)
+        public int checklogin(string Email, string Password)
         {
             string query = "select * from employee where Email=@Email and Password=@Password";
             SQLHelper.DbConnection();
