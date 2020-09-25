@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,11 +20,12 @@ namespace ToDoList
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            var md5 = new MD5CryptoServiceProvider();
             Entity.Employee employee = new Entity.Employee()
             {
                 ID = txtID.Text,
                 Email = txtEmail.Text,
-                PassWord = txtPassWord.Text,
+                PassWord = EasyEncryption.MD5.ComputeMD5Hash(txtPassWord.Text),
                 Name = txtName.Text,
                 DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
                 PhoneNumber = txtPhoneNumber.Text,
@@ -59,6 +61,11 @@ namespace ToDoList
             };
             EmployeeBLL.delete(employee);
             Page_Load(sender, e);
+        }
+
+        protected void btnAdd_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }
