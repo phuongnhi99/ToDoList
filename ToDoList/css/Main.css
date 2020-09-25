@@ -1,0 +1,30 @@
+﻿body {
+}
+
+#coverTask {
+    height: 500px;
+    width: 100%;
+    border: 1px solid #ABB2B9;
+}
+
+.container .row .col {
+    border: 1px solid #ebecf0;
+    //margin: 10px;
+    //border-radius: 5px;
+    padding: 0px;
+    width: 100%;
+    margin: 10px;
+    background-color: #ebecf0;
+}
+
+.list-group .card {
+    margin-left: -10px;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    padding:5px;
+    border-color: #F2F3F4;
+    border-bottom-color: #BDC3C7;
+    height: 80px;
+    width: 107%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+}
