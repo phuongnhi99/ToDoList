@@ -1,23 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EmployeeView.aspx.cs" Inherits="ToDoList.Employee"  MasterPageFile="~/GUI/Site.Master" %>
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-
-    <style type="text/css">
-        .auto-style1 {
-            width: 385px;
-            height: 255px;
-        }
-        .auto-style3 {
-            width: 88px;
-        }
-    </style>
-</head>
-
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
         <div>
             <h1>EMPLOYEE</h1>
             <asp:Panel ID="Panel1" runat="server" Width="397px">
@@ -47,7 +31,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style3">DateOfBirth</td>
+                        <td class="auto-style3">DateOfBirtHHHHHHHHHHHHHHHHHHHHHHHHh</td>
                         <td>
                             <asp:TextBox ID="txtDateOfBirth" runat="server" Width="296px"></asp:TextBox>
                         </td>
@@ -95,6 +79,5 @@
             <asp:Button ID="btnEdit" runat="server" Text="Sửa" OnClick="btnEdit_Click" />
             <asp:Button ID="btnDelete" runat="server" Text="Xóa" OnClick="btnDelete_Click" style="height: 26px" />
         </asp:Panel>
-    </form>
-</body>
-</html>
+
+    </asp:Content>
