@@ -65,7 +65,10 @@ namespace ToDoList
 
         protected void btnAdd_Click1(object sender, EventArgs e)
         {
-
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
     }
 }

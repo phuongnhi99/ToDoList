@@ -36,6 +36,7 @@ namespace ToDoList.DAL
             }
             return data;
         }
+
         public Entity.Employee GetEmployeeByID(string ID)
         {
             SQLHelper.DbConnection();
@@ -103,6 +104,7 @@ namespace ToDoList.DAL
             cmd.ExecuteNonQuery();
         }
         public int checklogin(string Email, string Password)
+
         {
             string query = "select * from employee where Email=@Email and Password=@Password";
             SQLHelper.DbConnection();
