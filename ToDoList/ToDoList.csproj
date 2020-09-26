@@ -76,6 +76,7 @@
     <Content Include="GUI\EmployeeView.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GUI\Login.aspx" />
+    <Content Include="GUI\TestTask.aspx" />
     <Content Include="Image\photo-1564703821142-e88574e6cfa8.jpg" />
     <Content Include="js\bootstrap.bundle.js" />
     <Content Include="js\bootstrap.bundle.min.js" />
@@ -84,6 +85,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\TaskBLL.cs" />
+    <Compile Include="DAL\TaskDAL.cs" />
+    <Compile Include="Entity\Task.cs" />
     <Compile Include="GUI\EmployeeView.aspx.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +108,13 @@
     </Compile>
     <Compile Include="GUI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TestTask.aspx.cs">
+      <DependentUpon>TestTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\TestTask.aspx.designer.cs">
+      <DependentUpon>TestTask.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
