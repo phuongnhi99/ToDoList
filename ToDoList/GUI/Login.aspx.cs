@@ -26,7 +26,8 @@ namespace ToDoList.GUI
                 lblmessage.Text = "Vui lòng nhập Email và Password";
             else
             {
-                i = EmployeeBLL.checklogin(txtEmail.Text, txtPassword.Text);
+                string pass = EasyEncryption.MD5.ComputeMD5Hash(txtPassword.Text);
+                i = EmployeeBLL.checklogin(txtEmail.Text, pass);
                 if (i == 0)
                     lblmessage.Text = "Tài khoản không tồn tại!!";
                 else
