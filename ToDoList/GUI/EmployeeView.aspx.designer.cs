@@ -96,6 +96,15 @@ namespace ToDoList
         protected global::System.Web.UI.WebControls.TextBox txtLevel;
 
         /// <summary>
+        /// example control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable example;
+
+        /// <summary>
         /// Panel2 control.
         /// </summary>
         /// <remarks>
