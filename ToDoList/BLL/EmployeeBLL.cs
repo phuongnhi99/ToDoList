@@ -9,6 +9,10 @@ namespace ToDoList.BLL
     public static class EmployeeBLL
     {
         private static EmployeeDAL obj = new EmployeeDAL();
+        public static List<Entity.Employee> GetEmployees()
+        {
+            return obj.GetEmployees();
+        }
         public static int checklogin(string email,string pass)
         {
             return obj.checklogin(email, pass);

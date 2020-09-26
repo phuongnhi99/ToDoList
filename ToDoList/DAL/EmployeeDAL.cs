@@ -34,6 +34,10 @@ namespace ToDoList.DAL
             return data;
         }
 
+        public void create_employee()
+        {
+
+        }
         public int checklogin(string Email,string Password)
         {
             string query = "select * from employee where Email=@Email and Password=@Password";
