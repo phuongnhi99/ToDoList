@@ -11,7 +11,14 @@ namespace ToDoList.DAL
         public static SqlConnection db;
         public static void DbConnection()
         {
-            db = new SqlConnection(@"server=.; database=ToDoList; integrated security = true;");
+            // String connectString = ConfigurationManager.ConnectionStrings["server=.; database=ToDoList; integrated security = true;"].ConnectionString;
+            // db = new SqlConnection(connectString);
+            // db = new SqlConnection("server=.; database=ToDoList; integrated security = true;");
+            // db.Open();
+
+            //DESKTOP-NIVOU6F\SQLEXPRESS
+            db = new SqlConnection(@"server=DESKTOP-NIVOU6F\SQLEXPRESS; database=ToDoList; integrated security = true;");
+
             db.Open();
         }
     }
