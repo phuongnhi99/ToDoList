@@ -57,7 +57,7 @@ namespace ToDoList
         {
             Entity.Employee employee = new Entity.Employee()
             {
-                ID = txtID.Text,               
+                ID =  txtID.Text,               
             };
             EmployeeBLL.delete(employee);
             Page_Load(sender, e);
