@@ -105,6 +105,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\TaskBLL.cs" />
+    <Compile Include="DAL\TaskDAL.cs" />
+    <Compile Include="Entity\Task.cs" />
     <Compile Include="GUI\EmployeeView.aspx.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
