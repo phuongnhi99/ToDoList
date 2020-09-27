@@ -30,5 +30,17 @@ namespace ToDoList.GUI
         {
 
         }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+           
+            if (Session["Email"] != null)
+            {
+                Session.Remove("Email");
+                Session.Remove("Password");
+                Response.Redirect("login.aspx");
+            }
+            Response.Redirect("login.aspx");
+        }
     }
 }

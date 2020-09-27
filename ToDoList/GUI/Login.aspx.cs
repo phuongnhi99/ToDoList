@@ -31,8 +31,24 @@ namespace ToDoList.GUI
                 if (i == 0)
                     lblmessage.Text = "Tài khoản không tồn tại!!";
                 else
+                {
+                    Session["Email"] = txtEmail.Text;
+                    Session["Password"] = txtPassword.Text;
                     Response.Redirect("employeeview.aspx");
+                }
             }
+        }
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            //Session["Email"] == null;
+            Object obj = (Object)Session["Email"];
+            if (obj != null)
+            {
+                Session.Remove("Email");
+                Session.Remove("Password");
+                Response.Redirect("login.aspx");
+            }
+            Response.Redirect("login.aspx");
         }
 
 

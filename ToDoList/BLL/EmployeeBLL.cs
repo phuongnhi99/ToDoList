@@ -8,7 +8,10 @@ namespace ToDoList.BLL
 {
     public static class EmployeeBLL
     {
-        public static EmployeeDAL obj = new EmployeeDAL();
+
+        private static EmployeeDAL obj = new EmployeeDAL();
+       
+
         public static int checklogin(string email,string pass)
         {
             return obj.checklogin(email, pass);
