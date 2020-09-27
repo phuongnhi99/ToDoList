@@ -16,10 +16,7 @@ namespace ToDoList
             List<Entity.Employee> emp = EmployeeBLL.GetAll();
             tblEmployee.DataSource = emp.ToList();
             tblEmployee.DataBind();
-            if (Session["Email"] == null)
-            {
-                Response.Redirect("login.aspx");
-            }
+           
         }
 
         protected void btnAdd_Click1(object sender, EventArgs e)
