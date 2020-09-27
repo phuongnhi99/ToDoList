@@ -4,8 +4,19 @@
 
 <html>
 <head runat="server">
+    <!-- CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link href="../css/Main.css" rel="stylesheet" />
+
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
     <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -51,7 +62,7 @@
                     style="text-align:left;"/>
                 <asp:Button ID="btn_logout" runat="server" Text="Đăng xuất"
                     BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="0px" Height="75%" Width="100%"
-                    style="text-align:left;"/>
+                    style="text-align:left;" OnClick="btn_logout_Click"/>
             </asp:Panel>
         <%---------------End User---------------%>
         </div>
