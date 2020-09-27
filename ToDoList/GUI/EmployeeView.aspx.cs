@@ -22,15 +22,9 @@ namespace ToDoList
             }
         }
 
-        protected void btnAdd_Click1(object sender, EventArgs e)
+        protected void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "" || txtEmail.Text == "" || txtPassWord.Text == "" || txtPosition.Text == "" || txtLevel.Text == "" || txtDateOfBirth.Text == "")
-            {
-                Response.Redirect("employeeview.aspx");
-            }
-            else
-            {
-                var md5 = new MD5CryptoServiceProvider();
+            var md5 = new MD5CryptoServiceProvider();
             Entity.Employee employee = new Entity.Employee()
             {
                 ID = txtID.Text,
