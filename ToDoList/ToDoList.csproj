@@ -118,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="GUI\Home.aspx" />
     <Content Include="GUI\Login.aspx" />
+    <Content Include="GUI\TaskTest.aspx" />
     <Content Include="GUI\TaskView.aspx" />
     <Content Include="Image\photo-1564703821142-e88574e6cfa8.jpg" />
     <Content Include="Image\user.png" />
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="GUI\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TaskTest.aspx.cs">
+      <DependentUpon>TaskTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\TaskTest.aspx.designer.cs">
+      <DependentUpon>TaskTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\TaskView.aspx.cs">
       <DependentUpon>TaskView.aspx</DependentUpon>
