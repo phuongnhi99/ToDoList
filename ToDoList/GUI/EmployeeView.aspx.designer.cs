@@ -24,6 +24,15 @@ namespace ToDoList
         protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
+        /// abc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl abc;
+
+        /// <summary>
         /// txtID control.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace ToDoList
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLevel;
-
-        /// <summary>
-        /// example control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable example;
 
         /// <summary>
         /// Panel2 control.
