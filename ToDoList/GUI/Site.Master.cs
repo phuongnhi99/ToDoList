@@ -24,17 +24,23 @@ namespace ToDoList.GUI
 
         }
 
-        protected void btn_user_Click(object sender, ImageClickEventArgs e)
-        {
-            if (pn_user.Visible == true)
-                pn_user.Visible = false;
-            else
-                pn_user.Visible = true;
-        }
+        
 
         protected void btn_info_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+           
+            if (Session["Email"] != null)
+            {
+                Session.Remove("Email");
+                Session.Remove("Password");
+                Response.Redirect("login.aspx");
+            }
+            Response.Redirect("login.aspx");
         }
     }
 }
