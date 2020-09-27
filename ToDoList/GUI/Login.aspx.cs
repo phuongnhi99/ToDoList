@@ -46,9 +46,9 @@ namespace ToDoList.GUI
             {
                 Session.Remove("Email");
                 Session.Remove("Password");
-                Response.Redirect("login");
+                Response.Redirect("login.aspx");
             }
-            Response.Redirect("login");
+            Response.Redirect("login.aspx");
         }
 
 
