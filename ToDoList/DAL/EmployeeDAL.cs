@@ -14,7 +14,7 @@ namespace ToDoList.DAL
         {
             List<Entity.Employee> data = new List<Entity.Employee>();
             string query = "select * from employee";
-            DAL.SQLHelper.DbConnection();
+            SQLHelper.DbConnection();
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.HasRows)
@@ -67,18 +67,20 @@ namespace ToDoList.DAL
         }
         public void AddEmp(Entity.Employee employee)
         {
-            SQLHelper.DbConnection();
-            string query = "insert into EMPLOYEE (ID, Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (@ID, @Email, @Password, @Name, @DateOfBirth, @PhoneNumber, @Position, @Level)";
-            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-            cmd.Parameters.AddWithValue("ID", employee.ID);
-            cmd.Parameters.AddWithValue("Email", employee.Email);
-            cmd.Parameters.AddWithValue("Password", employee.PassWord);
-            cmd.Parameters.AddWithValue("Name", employee.Name);
-            cmd.Parameters.AddWithValue("DateOfBirth", employee.DateOfBirth);
-            cmd.Parameters.AddWithValue("PhoneNumber", employee.PhoneNumber);
-            cmd.Parameters.AddWithValue("Position", employee.Position);
-            cmd.Parameters.AddWithValue("Level", employee.Level);
-            cmd.ExecuteNonQuery();
+            
+                SQLHelper.DbConnection();
+                string query = "insert into EMPLOYEE (ID, Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (@ID, @Email, @Password, @Name, @DateOfBirth, @PhoneNumber, @Position, @Level)";
+                SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+                cmd.Parameters.AddWithValue("ID", employee.ID);
+                cmd.Parameters.AddWithValue("Email", employee.Email);
+                cmd.Parameters.AddWithValue("Password", employee.PassWord);
+                cmd.Parameters.AddWithValue("Name", employee.Name);
+                cmd.Parameters.AddWithValue("DateOfBirth", employee.DateOfBirth);
+                cmd.Parameters.AddWithValue("PhoneNumber", employee.PhoneNumber);
+                cmd.Parameters.AddWithValue("Position", employee.Position);
+                cmd.Parameters.AddWithValue("Level", employee.Level);
+                cmd.ExecuteNonQuery();
+            
         }
         public void updateEmp(Entity.Employee employee)
         {

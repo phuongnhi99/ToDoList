@@ -16,6 +16,10 @@ namespace ToDoList
             List<Entity.Employee> emp = EmployeeBLL.GetAll();
             tblEmployee.DataSource = emp.ToList();
             tblEmployee.DataBind();
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -34,6 +38,8 @@ namespace ToDoList
             };
             EmployeeBLL.AddEmp(employee);
             Page_Load(sender, e);
+        }
+            
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -57,18 +63,15 @@ namespace ToDoList
         {
             Entity.Employee employee = new Entity.Employee()
             {
-                ID =  txtID.Text,               
+                ID = txtID.Text,
             };
             EmployeeBLL.delete(employee);
             Page_Load(sender, e);
         }
 
-        protected void btnAdd_Click1(object sender, EventArgs e)
+        protected void btnAdd_Click(object sender, EventArgs e)
         {
-            if (Session["Email"] == null)
-            {
-                Response.Redirect("login.aspx");
-            }
+            abc.InnerHtml = "<tr><td> Tiger Nixon </td> <td> System Architect </td><td> Edinburgh </td><td> 61 </td><td> 2011 / 04 / 25 </td><td>$320,800 </td></tr>";
         }
     }
 }

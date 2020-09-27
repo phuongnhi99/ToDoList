@@ -4,80 +4,128 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <!--<link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">-->
+    <!-- MDBootstrap Datatables  -->
+    <link href="../css/addons/datatables2.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="../css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="../css/Main.css">
 </head>
+
+
+
+
 <body>
-    <form id="form1" runat="server">
-    <%-----------------Navigation-----------------%>
-        <div style="position: absolute; top: 0%; left: 0%;
-                width: 100%; height: 8%; 
-                box-shadow:0 2px 5px 0 rgb(237, 236, 236);">
-            <asp:Label ID="Label1" runat="server" Text="TDL"
-                style="font-family: 'Sitka Heading'; font-size: 25px; text-align: center;
-                    position:absolute; left: 2%; top: 25%; height: 75%;">
-            </asp:Label>
-        <%-----------------Menu-----------------%>        
-            <asp:Button ID="btn_task" runat="server" Text="Task" 
-                BackColor="White" BorderColor="Black" ForeColor="Black" Font-Size="20px"
-                OnClick="btn_task_Click"
-                PostBackUrl="~/GUI/Login.aspx"
-                style="border-radius: 8px; height: 50%; width: 10%;
-                    position:absolute; left: 8%; top: 25%;" 
-                 />
-            <asp:Button ID="btn_employee" runat="server" Text="Employee" 
-                BackColor="White" BorderColor="Black" ForeColor="Black" Font-Size="20px"
-                OnClick="btn_employee_Click"
-                PostBackUrl="~/GUI/EmployeeView.aspx"
-                style="border-radius: 8px; height: 50%; width: 10%;
-                    position:absolute; left: 20%; top: 25%;" 
-                  />
-        <%---------------End Menu---------------%>
+   <!--Main Navigation-->
+<header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
+    <a class="navbar-brand" href="#"><strong>Navbar</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Opinions</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><i class="fab fa-instagram"></i></a>
+        </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-        <%-----------------User-----------------%>       
-            <asp:ImageButton ID="btn_user" runat="server" 
-                ImageUrl="~/Image/user.png" Height="50%" 
-                ImageAlign="Right" 
-                style="position:absolute; right: 5%; top: 24%;" OnClick="btn_user_Click"/>
-            <asp:Panel ID="pn_user" runat="server" Visible="False" OnClick="btn_info_Click"
-                style="position:absolute; right: 3%; top: 85%; width: 10%;
-                    box-shadow:0 2px 5px 0 rgb(237, 236, 236);">
-                <asp:Button ID="btn_info" runat="server" Text="Thông tin cá nhân" 
-                    BackColor="White" BorderStyle="None" BorderWidth="0px" Height="75%" Width="100%" 
-                    style="text-align:left;"/>
-                <asp:Button ID="btn_edit" runat="server" Text="Sửa thông tin" 
-                    BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="0px" Height="75%" Width="100%"
-                    style="text-align:left;"/>
-                <asp:Button ID="btn_logout" runat="server" Text="Đăng xuất"
-                    BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="0px" Height="75%" Width="100%"
-                    style="text-align:left;"/>
-            </asp:Panel>
-        <%---------------End User---------------%>
+</header>
+<!--Main Navigation-->
+
+
+    <main>
+    
+    <form runat="server">
+        <div class="content-cover" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
-    <%---------------End Navigation---------------%>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
 
-    <%---------------Footer---------------%>
-        <div style="position: absolute; bottom: 0%; left: 0%;
-                width: 100%; height: 6%">
-            <hr />
-            <asp:Label ID="Label2" runat="server" Text="@Design by TDL@" 
-                style="position: absolute; top:30%; left: 47%;" Font-Size="16px"
-                >
-            </asp:Label>
-        </div>
-    <%---------------End Footer---------------%>
-
-    <%---------------Detail---------------%>
-        <asp:Panel ID="pn_detail" runat="server"
-            style="" Width="80%" BackColor="#FF3399" Height="50%">
-
-        </asp:Panel>
-    <%-------------End Detail-------------%>
     </form>
+  
+    </main>
+
+
+
+
+            <!-- Footer -->
+        <footer class="page-footer font-small pink ">
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+          </div>
+          <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+
+   <!-- End your project here-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../js/mdb.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript"></script>
+    <!-- MDBootstrap Datatables  -->
+    <script type="text/javascript" src="../js/addons/datatables2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //Pagination numbers
+            $('#paginationSimpleNumbers').DataTable({
+                "pagingType": "simple_numbers"
+            });
+        });
+    </script>
+    
+    
 </body>
 </html>
