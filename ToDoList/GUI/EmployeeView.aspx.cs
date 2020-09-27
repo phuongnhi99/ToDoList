@@ -20,6 +20,7 @@ namespace ToDoList
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            List<Entity.Employee> emp = EmployeeBLL.GetAll();
             var md5 = new MD5CryptoServiceProvider();
             Entity.Employee employee = new Entity.Employee()
             {
