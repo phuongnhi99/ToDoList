@@ -16,6 +16,12 @@ namespace ToDoList.BLL
             return obj.GetAllTask();
         }
 
+
+        public static Task GetTask(string TaskId)
+        {
+            return obj.GetTask(TaskId);
+        }
+
         public static List<Task> GetTaskProgress()
         {
             return obj.GetTaskProgress();
@@ -35,6 +41,7 @@ namespace ToDoList.BLL
         //{
         //    return obj.GetTask();
         //}
+
 
         public static void AddTask(Task ta)
         {

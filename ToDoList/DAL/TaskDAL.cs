@@ -31,7 +31,7 @@ namespace ToDoList.DAL
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
                     task.Status = reader.GetString(6);
-                    task.Visibility = reader.GetString(7);
+                    task.Visability = reader.GetString(7);
                     //task.Attachment = reader.GetString(8);
                     //task.Comment = reader.GetString(9);
                     //task.Partner = reader.GetString(10);
@@ -41,6 +41,9 @@ namespace ToDoList.DAL
             }
             return data;
         }
+
+
+        
 
         public List<Task> GetTaskProgress()
         {
@@ -132,7 +135,8 @@ namespace ToDoList.DAL
             return data;
         }
 
-        public Task GetTask(int ID)
+        public Task GetTask(string ID)
+
         {
             Task task = new Task();
             DAL.SQLHelper.DbConnection();
@@ -149,7 +153,7 @@ namespace ToDoList.DAL
                 task.Deadline = Convert.ToDateTime(reader["Deadline"].ToString());
                 task.Description = reader["Description"].ToString();
                 task.Status = reader["Status"].ToString();
-                task.Visibility = reader["Visibility"].ToString();
+                task.Visability = reader["Visability"].ToString();
                 //task.Attachment = reader["Attachment"].ToString();
                 //task.Comment = reader["Comment"].ToString();
                 //task.Partner = reader["Partner"].ToString();
@@ -160,9 +164,9 @@ namespace ToDoList.DAL
         public void AddTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
-            string sql = "INSERT INTO TASK (ID, Name, OwnerId, StartDay, Deadline, Description, Status, Visibility, Attachment, Comment, Partner) " +
-                "VALUES (@ID, @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visibility, @Attachment, @Comment, @Partner)";
-            SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
+            string sql = "INSERT INTO TASK (ID, Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment, Comment, Partner) " +
+                "VALUES (@ID, @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment, @Comment, @Partner)";
+            SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.Parameters.AddWithValue("@Name", task.Name);
             cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
@@ -170,10 +174,10 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@Deadline", task.Deadline);
             cmd.Parameters.AddWithValue("@Description", task.Description);
             cmd.Parameters.AddWithValue("@Status", task.Status);
-            cmd.Parameters.AddWithValue("@Visibility", task.Visibility);
-            //cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
-            //cmd.Parameters.AddWithValue("@Comment", task.Comment);
-            //cmd.Parameters.AddWithValue("@Partner", task.Partner);
+            cmd.Parameters.AddWithValue("@Visability", task.Visability);
+            cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
+            cmd.Parameters.AddWithValue("@Comment", task.Comment);
+            cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.ExecuteNonQuery();
         }
 
@@ -181,29 +185,29 @@ namespace ToDoList.DAL
         {
             DAL.SQLHelper.DbConnection();
             string sql = "UPDATE TASK SET " +
-                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visibility = @Visibility, Attachment = @Attachment, Comment = @Comment, Partner = @Partner" +
-                "WHERE ID = @ID";
-            SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
+                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visability = @Visability, Attachment = @Attachment, Comment = @Comment, Partner = @Partner " +
+                " WHERE ID = @ID";
+            SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@Name", task.Name);
             cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
-            cmd.Parameters.AddWithValue("@StarDay", task.StartDay);
+            cmd.Parameters.AddWithValue("@StartDay", task.StartDay);
             cmd.Parameters.AddWithValue("@Deadline", task.Deadline);
             cmd.Parameters.AddWithValue("@Description", task.Description);
             cmd.Parameters.AddWithValue("@Status", task.Status);
-            cmd.Parameters.AddWithValue("@Visibility", task.Visibility);
-            //cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
-            //cmd.Parameters.AddWithValue("@Comment", task.Comment);
-            //cmd.Parameters.AddWithValue("@Partner", task.Partner);
+            cmd.Parameters.AddWithValue("@Visability", task.Visability);
+            cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
+            cmd.Parameters.AddWithValue("@Comment", task.Comment);
+            cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
 
         public void DeleteTask(Task task)
         {
-            DAL.SQLHelper.DbConnection();
+            SQLHelper.DbConnection();
             string sql = "DELETE TASK " +
                 "WHERE ID = @ID";
-            SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
+            SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
