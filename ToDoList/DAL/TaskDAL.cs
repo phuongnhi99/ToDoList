@@ -42,7 +42,101 @@ namespace ToDoList.DAL
             return data;
         }
 
+
+        
+
+        public List<Task> GetTaskProgress()
+        {
+            List<Task> data = new List<Task>();
+            string query = "SELECT * FROM TASK WHERE Status = N'Chưa hoàn thành'";
+            DAL.SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Task task = new Task();
+                    task.ID = reader.GetString(0);
+                    task.Name = reader.GetString(1);
+                    task.OwnerId = reader.GetString(2);
+                    task.StartDay = reader.GetDateTime(3);
+                    task.Deadline = reader.GetDateTime(4);
+                    task.Description = reader.GetString(5);
+                    task.Status = reader.GetString(6);
+                    task.Visibility = reader.GetString(7);
+                    //task.Attachment = reader.GetString(8);
+                    //task.Comment = reader.GetString(9);
+                    //task.Partner = reader.GetString(10);
+                    data.Add(task);
+                }
+                reader.NextResult();
+            }
+            return data;
+        }
+
+        public List<Task> GetTaskDone()
+        {
+            List<Task> data = new List<Task>();
+            string query = "SELECT * FROM TASK WHERE Status = N'Hoàn thành'";
+            DAL.SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Task task = new Task();
+                    task.ID = reader.GetString(0);
+                    task.Name = reader.GetString(1);
+                    task.OwnerId = reader.GetString(2);
+                    task.StartDay = reader.GetDateTime(3);
+                    task.Deadline = reader.GetDateTime(4);
+                    task.Description = reader.GetString(5);
+                    task.Status = reader.GetString(6);
+                    task.Visibility = reader.GetString(7);
+                    //task.Attachment = reader.GetString(8);
+                    //task.Comment = reader.GetString(9);
+                    //task.Partner = reader.GetString(10);
+                    data.Add(task);
+                }
+                reader.NextResult();
+            }
+            return data;
+        }
+
+        public List<Task> GetTaskLate()
+        {
+            List<Task> data = new List<Task>();
+            string query = "SELECT * FROM TASK WHERE Status = N'Trễ hạn'";
+            DAL.SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Task task = new Task();
+                    task.ID = reader.GetString(0);
+                    task.Name = reader.GetString(1);
+                    task.OwnerId = reader.GetString(2);
+                    task.StartDay = reader.GetDateTime(3);
+                    task.Deadline = reader.GetDateTime(4);
+                    task.Description = reader.GetString(5);
+                    task.Status = reader.GetString(6);
+                    task.Visibility = reader.GetString(7);
+                    //task.Attachment = reader.GetString(8);
+                    //task.Comment = reader.GetString(9);
+                    //task.Partner = reader.GetString(10);
+                    data.Add(task);
+                }
+                reader.NextResult();
+            }
+            return data;
+        }
+
         public Task GetTask(string ID)
+
         {
             Task task = new Task();
             DAL.SQLHelper.DbConnection();
