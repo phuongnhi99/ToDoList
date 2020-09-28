@@ -17,11 +17,21 @@ namespace ToDoList
 
             tblEmployee.DataSource = emp.ToList();
             tblEmployee.DataBind();
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            var md5 = new MD5CryptoServiceProvider();
+            if (txtID.Text == "" || txtEmail.Text == "" || txtPassWord.Text == "" || txtPosition.Text == "" || txtLevel.Text == "" || txtDateOfBirth.Text == "")
+            {
+                Response.Redirect("employeeview.aspx");
+            }
+            else
+            {
+                var md5 = new MD5CryptoServiceProvider();
             Entity.Employee employee = new Entity.Employee()
             {
                 ID = txtID.Text,
@@ -35,6 +45,8 @@ namespace ToDoList
             };
             EmployeeBLL.AddEmp(employee);
             Page_Load(sender, e);
+        }
+            
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
