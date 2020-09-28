@@ -16,10 +16,10 @@ namespace ToDoList.BLL
             return obj.GetAllTask();
         }
 
-        //public static Task GetTask(int TaskId)
-        //{
-        //    return obj.GetTask();
-        //}
+        public static Task GetTask(string TaskId)
+        {
+            return obj.GetTask(TaskId);
+        }
 
         public static void AddTask(Task ta)
         {
