@@ -40,8 +40,8 @@ namespace ToDoList.DAL
         public Entity.Employee GetEmployeeByID(string ID)
         {
             SQLHelper.DbConnection();
-           string query = "Select * from EMPLOYEE where ID=@ID";
-            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            string query = "Select * from EMPLOYEE where ID=@ID";
+            SqlCommand cmd = new SqlCommand();
             cmd.Parameters.AddWithValue("@ID", ID);
             SqlDataReader dr = cmd.ExecuteReader();
             {

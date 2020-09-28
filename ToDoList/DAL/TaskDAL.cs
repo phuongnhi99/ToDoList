@@ -23,62 +23,98 @@ namespace ToDoList.DAL
             {
                 while (reader.Read())
                 {
-                    Task ta = new Task();
-                    ta.TaskId = reader.GetString(0);
-                    ta.Name = reader.GetString(1);
-                    data.Add(ta);
+                    Task task = new Task();
+                    task.ID = reader.GetString(0);
+                    task.Name = reader.GetString(1);
+                    task.OwnerId = reader.GetString(2);
+                    task.StartDay = reader.GetDateTime(3);
+                    task.Deadline = reader.GetDateTime(4);
+                    task.Description = reader.GetString(5);
+                    task.Status = reader.GetString(6);
+                    task.Visibility = reader.GetString(7);
+                    //task.Attachment = reader.GetString(8);
+                    //task.Comment = reader.GetString(9);
+                    //task.Partner = reader.GetString(10);
+                    data.Add(task);
                 }
                 reader.NextResult();
             }
             return data;
         }
 
-        public Task GetTask(int TaskId)
+        public Task GetTask(int ID)
         {
-            Task ta = new Task();
+            Task task = new Task();
             DAL.SQLHelper.DbConnection();
-            string sql = "SELECT * FROM TASK WHERE ID = @TaskId";
+            string sql = "SELECT * FROM TASK WHERE ID = @ID";
             SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
-            cmd.Parameters.AddWithValue("@TaskId", TaskId);
+            cmd.Parameters.AddWithValue("@ID", ID);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                ta.TaskId = reader["ID"].ToString();
-                ta.Name = reader["Name"].ToString();
+                task.ID = reader["ID"].ToString();
+                task.Name = reader["Name"].ToString();
+                task.OwnerId = reader["OwnerId"].ToString();
+                task.StartDay = Convert.ToDateTime(reader["StartDay"].ToString());
+                task.Deadline = Convert.ToDateTime(reader["Deadline"].ToString());
+                task.Description = reader["Description"].ToString();
+                task.Status = reader["Status"].ToString();
+                task.Visibility = reader["Visibility"].ToString();
+                //task.Attachment = reader["Attachment"].ToString();
+                //task.Comment = reader["Comment"].ToString();
+                //task.Partner = reader["Partner"].ToString();
             }
-            return ta;
+            return task;
         }
 
-        public void AddTask(Task ta)
+        public void AddTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
-            string sql = "INSERT INTO TASK (ID, Name) " +
-                "VALUES (@TaskId, @Name)";
+            string sql = "INSERT INTO TASK (ID, Name, OwnerId, StartDay, Deadline, Description, Status, Visibility, Attachment, Comment, Partner) " +
+                "VALUES (@ID, @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visibility, @Attachment, @Comment, @Partner)";
             SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
-            cmd.Parameters.AddWithValue("@TaskId", ta.TaskId);
-            cmd.Parameters.AddWithValue("@Name", ta.Name);
+            cmd.Parameters.AddWithValue("@ID", task.ID);
+            cmd.Parameters.AddWithValue("@Name", task.Name);
+            cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
+            cmd.Parameters.AddWithValue("@StartDay", task.StartDay);
+            cmd.Parameters.AddWithValue("@Deadline", task.Deadline);
+            cmd.Parameters.AddWithValue("@Description", task.Description);
+            cmd.Parameters.AddWithValue("@Status", task.Status);
+            cmd.Parameters.AddWithValue("@Visibility", task.Visibility);
+            //cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
+            //cmd.Parameters.AddWithValue("@Comment", task.Comment);
+            //cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.ExecuteNonQuery();
         }
 
-        public void EditTask(Task ta)
+        public void EditTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
             string sql = "UPDATE TASK SET " +
-                "Name = @Name" +
-                "WHERE ID = @TaskId";
+                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visibility = @Visibility, Attachment = @Attachment, Comment = @Comment, Partner = @Partner" +
+                "WHERE ID = @ID";
             SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
-            cmd.Parameters.AddWithValue("@Name", ta.Name);
-            cmd.Parameters.AddWithValue("@TaskId", ta.TaskId);
+            cmd.Parameters.AddWithValue("@Name", task.Name);
+            cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
+            cmd.Parameters.AddWithValue("@StarDay", task.StartDay);
+            cmd.Parameters.AddWithValue("@Deadline", task.Deadline);
+            cmd.Parameters.AddWithValue("@Description", task.Description);
+            cmd.Parameters.AddWithValue("@Status", task.Status);
+            cmd.Parameters.AddWithValue("@Visibility", task.Visibility);
+            //cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
+            //cmd.Parameters.AddWithValue("@Comment", task.Comment);
+            //cmd.Parameters.AddWithValue("@Partner", task.Partner);
+            cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
 
-        public void DeleteTask(Task ta)
+        public void DeleteTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
             string sql = "DELETE TASK " +
-                "WHERE ID = @TaskId";
+                "WHERE ID = @ID";
             SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
-            cmd.Parameters.AddWithValue("@TaskId", ta.TaskId);
+            cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
     }
