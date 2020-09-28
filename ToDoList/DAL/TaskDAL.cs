@@ -110,10 +110,10 @@ namespace ToDoList.DAL
 
         public void DeleteTask(Task task)
         {
-            DAL.SQLHelper.DbConnection();
+            SQLHelper.DbConnection();
             string sql = "DELETE TASK " +
                 "WHERE ID = @ID";
-            SqlCommand cmd = new SqlCommand(sql, DAL.SQLHelper.db);
+            SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
