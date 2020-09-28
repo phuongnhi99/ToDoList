@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../css/Main.css">
 </head>
 <body>
+
     <!--Main Navigation-->
     <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar">
