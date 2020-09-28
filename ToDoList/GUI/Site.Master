@@ -23,10 +23,6 @@
     <!-- Your custom styles (optional) -->
     <link rel="stylesheet" href="../css/Main.css">
 </head>
-
-
-
-
 <body>
    <!--Main Navigation-->
 <header>
@@ -67,9 +63,9 @@
             Dropdown
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#modalProfileForm">Profile</a>
+            <a class="dropdown-item" data-toggle="modal" data-target="#modalEditProfileForm">Edit Profile</a>
+            <a class="dropdown-item" id="logout">Log out</a>
           </div>
         </li>
       </ul>
@@ -78,22 +74,112 @@
 
 </header>
 <!--Main Navigation-->
-
-
     <main>
-    
     <form runat="server">
         <div class="content-cover" runat="server">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
         </div>
 
     </form>
-  
     </main>
+    <%---------------Modal profile---------------%>
+    <div class="modal fade" id="modalProfileForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Profile</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class="fas fa-user prefix grey-text"></i>
+              <input type="text" id="username" class="form-control" disabled>
+            </div>
+            <div class="md-form mb-5">
+              <i class="fas fa-envelope prefix grey-text"></i>
+              <input type="email" id="email" class="form-control" disabled>
+            </div>
+            <div class="row">
+                <div class="md-form mb-5 col-6">
+                    <i class="fas fa-phone prefix grey-text"></i>
+                    <input type="email" id="phonenumber" class="form-control" disabled>
+                </div>
+                <div class="md-form mb-5 col-6">
+                    <i class="fas fa-calendar prefix grey-text"></i>
+                    <input type="email" id="dayofbirth" class="form-control" disabled>
+                </div>
+            </div>
+            <div class="md-form mb-5">
+              <i class="fas fa-location-arrow prefix grey-text"></i>
+              <input type="email" id="position" class="form-control" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%-------------End Modal profile-------------%>
 
-
-
-
+    <%---------------Modal Edit---------------%>
+    <div class="modal fade" id="modalEditProfileForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Edit Profile</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body mx-3">
+            <form>
+                <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="username-edit" class="form-control">
+                    <label class="valid-feedback"></label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="email" id="email-edit" class="form-control">
+                    <label class="valid-feedback"></label>
+                </div>
+                <div class="row">
+                    <div class="col-6 md-form mb-5">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" id="password-edit" class="form-control">
+                        <label class="valid-feedback"></label>
+                    </div>
+                    <div class="col-6 md-form mb-5">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" id="confirm-password" class="form-control">
+                        <label class="valid-feedback"></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="md-form mb-5 col-6">
+                        <i class="fas fa-phone prefix grey-text"></i>
+                        <input type="text" id="phonenumber-edit" class="form-control">
+                        <label class="valid-feedback"></label>
+                    </div>
+                    <div class="md-form mb-5 col-6">
+                        <i class="fas fa-calendar prefix grey-text"></i>
+                        <input type="date" id="dayofbirth-edit" class="form-control">
+                        <label class="valid-feedback"></label>
+                    </div>
+                </div>
+                <div class="md-form mb-5">
+                  <i class="fas fa-location-arrow prefix grey-text"></i>
+                  <input type="email" id="position-edit" class="form-control" disabled>
+                </div>
+                <button class="btn btn-primary btn-sm btn-rounded" type="submit">Done</button>
+                <button class="btn btn-light btn-sm btn-rounded" type="reset">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <%----------------End Edit----------------%>
             <!-- Footer -->
         <footer class="page-footer font-small pink ">
 
@@ -105,7 +191,6 @@
 
         </footer>
         <!-- Footer -->
-
    <!-- End your project here-->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
