@@ -13,7 +13,7 @@
                     <div class="card-header">
                         <h5 class="card-title">IN PROGRESS</h5>
                     </div>
-                    <div class="card-body">
+                    <div id="progress" runat="server" class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
                                 <div class="card-body p-1">
