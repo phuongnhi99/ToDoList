@@ -68,8 +68,8 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#" id="Infor_">Another action</a>
+            <a class="dropdown-item" href="#" id="logout" runat="server" onserverclick="logout_ServerClick">Something else here</a>
           </div>
         </li>
       </ul>
