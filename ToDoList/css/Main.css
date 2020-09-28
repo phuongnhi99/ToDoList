@@ -1,5 +1,11 @@
 ﻿body {
-    overflow:hidden
+    //overflow:hidden;
+}
+footer
+{
+    margin-top:100%;
+    position:fixed;
+    width:100%;
 }
 
 /* width */
@@ -25,7 +31,7 @@
 }
 
 .content-cover {
-    height: 630px;
+    //height: 100%;
     width: 100%;
     //border: 1px solid #ABB2B9;
     margin-top: 70px;
@@ -46,18 +52,66 @@
     width: 100%;
     margin: 10px;
     background-color: #ebecf0;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: auto;
 }
 
 .list-group .card {
-    margin-left: -10px;
+    margin-left: -5px;
     margin-bottom: 7px;
     margin-top: 7px;
     padding:5px;
     border-color: #F2F3F4;
-    border-bottom-color: #BDC3C7;
+    border-bottom-color: seagreen;
     height: 80px;
-    width: 107%;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+    width: 105%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    color:black;
+}
+.card-body{
+    overflow:auto;
+    height:305px;
 }
 
 
+.status-progress-btn {
+    width: 25px;
+    height: 25px;
+    background-color: seagreen;
+}
+.status-done-btn {
+    width: 25px;
+    height: 25px;
+    background-color: #415A77;
+}
+.cal-btn {
+    border-radius: 5px;
+}
+.add-btn {
+    box-shadow: none;
+    font-size: 12pt;
+    margin-left: -5px;
+    padding-left: 10px;
+    height: 50px;
+    width: 105%;
+}
+
+.add-btn:hover {
+    color: lightgrey;
+    background-color: #496585;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+}
+.container .row .inprogress {
+    background-color: #415A77;
+    border-color: #415A77;
+}
+.container .row .done {
+    background-color: seagreen;
+    border-color: seagreen;
+}
+.container .row .late {
+    background-color: #D0693A;
+    border-color: #D0693A;
+}
