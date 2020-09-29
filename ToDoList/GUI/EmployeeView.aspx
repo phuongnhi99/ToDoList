@@ -110,7 +110,7 @@
             </asp:GridView>
         </asp:Panel>
         <asp:Panel ID="Panel3" runat="server" Height="83px">
-            <asp:Button ID="btnAdd" runat="server" Text="Thêm" OnClick="btnAdd_Click" />
+            <asp:Button ID="btnAdd" runat="server" Text="Thêm" OnClick="btnAdd_Click" AccessKey="1" />
             <asp:Button ID="btnEdit" runat="server" Text="Sửa" OnClick="btnEdit_Click" />
             <asp:Button ID="btnDelete" runat="server" Text="Xóa" OnClick="btnDelete_Click" style="height: 26px" />
         </asp:Panel>

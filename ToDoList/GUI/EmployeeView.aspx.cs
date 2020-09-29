@@ -23,20 +23,15 @@ namespace ToDoList
                                 "<td>" + a.Email + "</td>" +
                                 "<td>" + a.Name + "</td>" +
                                 "<td>" + a.PhoneNumber + "</td>" +
-                                "<td>" + a.DateOfBirth + "</td>" +
+                                "<td>" + a.DateOfBirth.ToString("dd/MM/yyyy") + "</td>" +
                                 "<td>" + a.Position + "</td>" +
-                                "<td><div class=\"row\">" +
-                                    "<button class=\"btn btn-outline-info btn-sm\">Xem</button>" +
-                                    "<button class=\"btn btn-outline-info btn-sm\">Xóa</button>" +
-                                    "<button class=\"btn btn-outline-info btn-sm\">sửa</button>" +
-                                "</div>" +
+                                "<td><button id="+a.ID+" onserverclick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
                                 "</tr>";
             //if (Session["Email"] == null)
             //{
             //    Response.Redirect("login.aspx");
             //}
         }
-
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             var md5 = new MD5CryptoServiceProvider();
@@ -46,11 +41,12 @@ namespace ToDoList
                 Email = txtEmail.Text,
                 PassWord = EasyEncryption.MD5.ComputeMD5Hash(txtPassWord.Text),
                 Name = txtName.Text,
-                DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                DateOfBirth = (Convert.ToDateTime(txtDateOfBirth.Text)).Date,
                 PhoneNumber = txtPhoneNumber.Text,
                 Position = txtPosition.Text,
                 Level = txtLevel.Text
             };
+            EmployeeBLL.GetEmployeeByID(btnAdd.AccessKey);
             EmployeeBLL.AddEmp(employee);
             Page_Load(sender, e);
         }
@@ -62,7 +58,7 @@ namespace ToDoList
                 Email = txtEmail.Text,
                 PassWord = txtPassWord.Text,
                 Name = txtName.Text,
-                DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                DateOfBirth = (Convert.ToDateTime(txtDateOfBirth.Text)).Date,
                 PhoneNumber = txtPhoneNumber.Text,
                 Position = txtPosition.Text,
                 Level = txtLevel.Text
