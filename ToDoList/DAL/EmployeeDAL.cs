@@ -173,7 +173,7 @@ namespace ToDoList.DAL
         public int checkduplicate(string Email)
 
         {
-            string query = "Select Count(*) from employee where Email=@Email";
+            string query = "Select Count(*) from employee where Email=@Email  ";
             SQLHelper.DbConnection();
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 100));
@@ -185,6 +185,20 @@ namespace ToDoList.DAL
             }
             return 0;
         }
-     
+        public int checkduplicatephone(string PhoneNumber)
+
+        {
+            string query = "Select Count(*) from employee where PhoneNumber=@PhoneNumber  ";
+            SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            cmd.Parameters.Add(new SqlParameter("@PhoneNumber", SqlDbType.VarChar, 100));
+            cmd.Parameters["@PhoneNumber"].Value = PhoneNumber;
+            int dem = (int)cmd.ExecuteScalar();
+            if (dem > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
     }
 }
