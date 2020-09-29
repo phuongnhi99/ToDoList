@@ -68,10 +68,7 @@
     <main>
 
         <form runat="server">
-            <div class="content-cover" runat="server">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-            </div>
-
         </form>
 
     </main>
