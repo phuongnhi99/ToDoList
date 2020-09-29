@@ -79,11 +79,11 @@ namespace ToDoList.GUI
             edit_cover.Visible = false;
         }
 
-        protected void hello(object sender, EventArgs e)
-        {
-            html.InnerHtml = "byebye";
-            //HtmlButton button = (HtmlButton)sender;
-            //TaskBLL.ChangeStatusToDone(button.ID);
-        }
+        //protected void hello(object sender, EventArgs e)
+        //{
+        //    html.InnerHtml = "byebye";
+        //    //HtmlButton button = (HtmlButton)sender;
+        //    //TaskBLL.ChangeStatusToDone(button.ID);
+        //}
     }
 }
