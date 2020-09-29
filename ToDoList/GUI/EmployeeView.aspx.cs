@@ -26,7 +26,11 @@ namespace ToDoList
                                 "<td>" + a.PhoneNumber + "</td>" +
                                 "<td>" + a.DateOfBirth.ToString("dd/MM/yyyy") + "</td>" +
                                 "<td>" + a.Position + "</td>" +
-                                "<td><button id="+a.ID+ " runat=\"server\" OnClick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
+                                "<td>" +
+                                "<button class=\"btnmennu btn-cyan\"><i class=\"fa fa-eye\"></i></button>" +
+                                "<button class=\"btnmennu btn-light\"><i class=\"fa fa-edit\"></i></button>" +
+                                "<button class=\"btnmennu btn-dark\"><i class=\"fa fa-trash\"></i></button>" +
+                                "</td>" +
                                 "</tr>";
 
             //if (Session["Email"] == null)
@@ -75,6 +79,38 @@ namespace ToDoList
         protected void btnAdd_Click1(object sender, EventArgs e)
         {
             txtID.Text = "bbbbbb";
+        }
+
+        protected void btn_close_ServerClick(object sender, EventArgs e)
+        {
+            if(form_add.Visible == true)
+            {
+                form_add.Visible = false;
+            }
+        }
+
+        protected void btn_Add_ServerClick(object sender, EventArgs e)
+        {
+            if (form_add.Visible == false)
+            {
+                form_add.Visible = true;
+            }
+        }
+
+        protected void close_edit_ServerClick(object sender, EventArgs e)
+        {
+            if (form_edit.Visible == false)
+            {
+                form_edit.Visible = true;
+            }
+        }
+
+        protected void btn_close_detail_ServerClick(object sender, EventArgs e)
+        {
+            if (detail.Visible == false)
+            {
+                detail.Visible = true;
+            }
         }
     }
 }
