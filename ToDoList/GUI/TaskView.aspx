@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col card inprogress ">
                     <div class="card-header">
-                        <h5 id="html" runat="server" class="card-title">IN PROGRESS</h5>
+                        <h5 class="card-title">IN PROGRESS</h5>
                     </div>
                     <div id="progress" runat="server" class="card-body">                        
                     </div>
