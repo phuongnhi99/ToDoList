@@ -28,11 +28,10 @@ namespace ToDoList
                                 "<td>" + a.Position + "</td>" +
                                 "<td><button id="+a.ID+ " runat=\"server\" OnClick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
                                 "</tr>";
-
-            if (Session["Email"] == null)
-            {
-                Response.Redirect("login.aspx");
-            }
+            //if (Session["Email"] == null)
+            //{
+            //    Response.Redirect("login.aspx");
+            //}
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {

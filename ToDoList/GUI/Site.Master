@@ -91,6 +91,21 @@
                     <i class="fas fa-calendar prefix grey-text"></i>
                     <input runat="server" type="datetime" id="dayofbirth" class="form-control" disabled>
                 </div>
+                <div class="row">
+                    <div class="md-form mb-5 col-6">
+                        <i class="fas fa-phone prefix grey-text"></i>
+                        <input type="text" id="phonenumber" class="form-control" disabled>
+                    </div>
+                    <div class="md-form mb-5 col-6">
+                        <i class="fas fa-calendar prefix grey-text"></i>
+                        <input type="date" id="dayofbirth" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="md-form mb-5">
+                  <i class="fas fa-location-arrow prefix grey-text"></i>
+                  <input type="text" id="position" class="form-control" disabled>
+                </div>
+              </div>
             </div>
             <div class="md-form mb-5">
               <i class="fas fa-location-arrow prefix grey-text"></i>
@@ -98,8 +113,8 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
+
     <%-------------End Modal profile-------------%>
 
     <%---------------Modal Edit---------------%>
@@ -154,7 +169,13 @@
                     </div>
                 </div>
                 <button class="btn btn-light btn-sm btn-rounded" type="reset">Cancel</button>
-                <button class="btn btn-dark btn-sm btn-rounded" type="submit">Done</button>   
+                <button class="btn btn-dark btn-sm btn-rounded" type="submit">Done</button>  
+
+                <div class="row">
+                    <button class="btn btn-light btn-sm btn-rounded">Xem</button>
+                    <button class="btn btn-light btn-sm btn-rounded">Xóa</button>
+                    <button class="btn btn-light btn-sm btn-rounded"><i class="fas fa-trash"></i></button>
+                </div>
             </form>
           </div>
         </div>
