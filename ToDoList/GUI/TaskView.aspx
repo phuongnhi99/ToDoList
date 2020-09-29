@@ -11,51 +11,9 @@
             <div class="row">
                 <div class="col card inprogress ">
                     <div class="card-header">
-                        <h5 class="card-title">IN PROGRESS</h5>
+                        <h5 id="html" runat="server" class="card-title">IN PROGRESS</h5>
                     </div>
-                    <div id="progress" runat="server" class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="form-control bd">Special title treatment</div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="form-control bd">Special title treatment</div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="form-control bd">Special title treatment</div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="form-control bd">Special title treatment</div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="form-control bd">Special title treatment</div>
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div id="progress" runat="server" class="card-body">                        
                     </div>
                     <div class="card-footer">
                         <button class="btn add-btn"><i class="fa fa-plus"></i>ADD NEW TASK</button>
@@ -67,40 +25,6 @@
                         <h5 class="card-title">DONE</h5>
                     </div>
                     <div id="done" runat="server" class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
-                                    </div>
-                                    <div class="form-control bd">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
-                                    </div>
-                                    <div class="form-control bd">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
-                                    </div>
-                                    <div class="form-control bd">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body input-group">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
-                                    </div>
-                                    <div class="form-control bd">Special title treatment</div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                     <div class="card-footer">
                     </div>
@@ -111,13 +35,6 @@
                         <h5 class="card-title">LATE</h5>
                     </div>
                     <div id="late" runat="server" class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0"></div>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                     <div class="card-footer">
                     </div>

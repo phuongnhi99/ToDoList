@@ -57,5 +57,10 @@ namespace ToDoList.BLL
         {
             obj.DeleteTask(task);
         }
+
+        public static void ChangeStatusToDone(String ID)
+        {
+            obj.ChangeStatusToDone(ID);
+        }
     }
 }

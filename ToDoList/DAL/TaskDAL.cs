@@ -207,5 +207,20 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
+
+        public void ChangeStatusToDone(String ID)
+        {
+            DAL.SQLHelper.DbConnection();
+            string sql = "UPDATE TASK SET " +
+                "Status = N'Hoàn thành'" +
+                " WHERE ID = @ID";
+            SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
+            cmd.Parameters.AddWithValue("@ID", ID);
+        }
+
+        public void ChangeStatusToInprogress()
+        {
+
+        }
     }
 }
