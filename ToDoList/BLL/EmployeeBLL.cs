@@ -16,6 +16,10 @@ namespace ToDoList.BLL
         {
             return obj.checkduplicate(email);
         }
+        public static int checkduplicatephone(string email)
+        {
+            return obj.checkduplicatephone(email);
+        }
         public static List<Entity.Employee> GetAll()
         {
             return obj.GetAll();
