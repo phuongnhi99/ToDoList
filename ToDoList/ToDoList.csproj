@@ -76,6 +76,21 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -103,6 +118,7 @@
     <Content Include="Global.asax" />
     <Content Include="GUI\Home.aspx" />
     <Content Include="GUI\Login.aspx" />
+    <Content Include="GUI\TaskTest.aspx" />
     <Content Include="GUI\TaskView.aspx" />
     <Content Include="Image\photo-1564703821142-e88574e6cfa8.jpg" />
     <Content Include="Image\user.png" />
@@ -169,6 +185,13 @@
     </Compile>
     <Compile Include="GUI\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TaskTest.aspx.cs">
+      <DependentUpon>TaskTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\TaskTest.aspx.designer.cs">
+      <DependentUpon>TaskTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\TaskView.aspx.cs">
       <DependentUpon>TaskView.aspx</DependentUpon>

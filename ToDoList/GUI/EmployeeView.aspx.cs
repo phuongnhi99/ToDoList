@@ -13,10 +13,21 @@ namespace ToDoList
     {
         public void Page_Load(object sender, EventArgs e)
         {
+            abc.InnerHtml = "";
             List<Entity.Employee> emp = EmployeeBLL.GetAll();
 
             tblEmployee.DataSource = emp.ToList();
             tblEmployee.DataBind();
+            foreach (Entity.Employee a in emp)
+                abc.InnerHtml = abc.InnerHtml + "<tr>" +
+                                "<td>" + a.ID + "</td>" +
+                                "<td>" + a.Email + "</td>" +
+                                "<td>" + a.Name + "</td>" +
+                                "<td>" + a.PhoneNumber + "</td>" +
+                                "<td>" + a.DateOfBirth + "</td>" +
+                                "<td>" + a.Position + "</td>" +
+                                "</tr>";
+
             if (Session["Email"] == null)
             {
                 Response.Redirect("login.aspx");
@@ -25,13 +36,7 @@ namespace ToDoList
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "" || txtEmail.Text == "" || txtPassWord.Text == "" || txtPosition.Text == "" || txtLevel.Text == "" || txtDateOfBirth.Text == "")
-            {
-                Response.Redirect("employeeview.aspx");
-            }
-            else
-            {
-                var md5 = new MD5CryptoServiceProvider();
+            var md5 = new MD5CryptoServiceProvider();
             Entity.Employee employee = new Entity.Employee()
             {
                 ID = txtID.Text,
@@ -46,9 +51,6 @@ namespace ToDoList
             EmployeeBLL.AddEmp(employee);
             Page_Load(sender, e);
         }
-            
-        }
-
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             Entity.Employee employee = new Entity.Employee()
@@ -75,7 +77,5 @@ namespace ToDoList
             EmployeeBLL.delete(employee);
             Page_Load(sender, e);
         }
-
-
     }
 }

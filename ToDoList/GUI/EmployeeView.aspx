@@ -160,7 +160,7 @@
         
 
         <asp:Panel ID="Panel2" runat="server" Width="397px">
-            <asp:GridView ID="tblEmployee" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
+            <asp:GridView ID="tblEmployee" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" AutoGenerateSelectButton="True">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:ButtonField ButtonType="Button" Text="Button" />

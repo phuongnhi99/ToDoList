@@ -10,7 +10,6 @@ namespace ToDoList.BLL
     {
 
         private static EmployeeDAL obj = new EmployeeDAL();
-       
 
         public static int checklogin(string email,string pass)
         {
