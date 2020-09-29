@@ -16,33 +16,43 @@
                     <div id="progress" runat="server" class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="form-control bd">Special title treatment</div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="form-control bd">Special title treatment</div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="form-control bd">Special title treatment</div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="form-control bd">Special title treatment</div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="form-control bd">Special title treatment</div>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-inprogress" type="button"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
@@ -59,27 +69,35 @@
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
+                                    </div>
+                                    <div class="form-control bd">Special title treatment</div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
+                                    </div>
+                                    <div class="form-control bd">Special title treatment</div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
+                                    </div>
+                                    <div class="form-control bd">Special title treatment</div>
                                 </div>
                             </li>
                             <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
+                                <div class="card-body input-group">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-change-status-done" type="button"><i class="fa fa-arrow-left"></i></button>
+                                    </div>
+                                    <div class="form-control bd">Special title treatment</div>
                                 </div>
                             </li>
                         </ul>
@@ -122,5 +140,71 @@
             </div>
 
         </div>
+    </div>
+
+
+
+    <div class="edit-cover">
+       
+        <div class="edit-content">
+            <form>
+               
+                 <div class="form-row ">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Name</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputEmail4">Description</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                 </div>
+                <div class="form-group row">
+                    
+                    <div class="col-6">
+                        <label for="example-date-input" class="col-2 col-form-label">Start Day</label>
+                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                    </div>
+                    <div class="col-6">
+                        <label for="example-date-input" class="col-2 col-form-label">Đeadline</label>
+                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                    </div>
+                </div>
+     
+        <div class="form-row ">
+                   
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputCity">Partner</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Status</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputZip">Visability</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+        </div>
+         <div class="blur-bg"</div>
     </div>
 </asp:Content>
