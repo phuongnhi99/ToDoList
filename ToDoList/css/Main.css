@@ -173,3 +173,8 @@ footer
     opacity: 0.5;
     position:absolute;
 }
+
+.close{
+    margin-top:0;
+    margin-right:0;
+}
