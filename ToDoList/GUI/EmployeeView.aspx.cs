@@ -26,8 +26,12 @@ namespace ToDoList
                                 "<td>" + a.PhoneNumber + "</td>" +
                                 "<td>" + a.DateOfBirth + "</td>" +
                                 "<td>" + a.Position + "</td>" +
+                                "<td><div class=\"row\">" +
+                                    "<button class=\"btn btn-outline-info btn-sm\">Xem</button>" +
+                                    "<button class=\"btn btn-outline-info btn-sm\">Xóa</button>" +
+                                    "<button class=\"btn btn-outline-info btn-sm\">sửa</button>" +
+                                "</div>" +
                                 "</tr>";
-
             //if (Session["Email"] == null)
             //{
             //    Response.Redirect("login.aspx");

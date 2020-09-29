@@ -144,11 +144,10 @@
 
 
 
-    <div class="edit-cover">
-       
+    <div class="edit-cover">    
         <div class="edit-content">
             <form>
-                <div class="close"><i class="fa fa-arrow-left"></i></div>
+                <div class="close"><i class="fa fa-arrow-left lg"></i></div>
                  <div class="form-row ">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Name</label>

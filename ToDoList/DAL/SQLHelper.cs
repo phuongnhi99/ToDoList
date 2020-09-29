@@ -20,7 +20,6 @@ namespace ToDoList.DAL
 
             //DESKTOP-R826P0H\MSSQLSERVER1
               db = new SqlConnection(@"server=DESKTOP-R826P0H\MSSQLSERVER1; database=ToDoList; integrated security = true;");
-
             db.Open();
         }
     }

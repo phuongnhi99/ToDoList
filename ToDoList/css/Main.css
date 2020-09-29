@@ -3,6 +3,7 @@
 }
 footer
 {
+    
     margin-top:100%;
     position:fixed;
     width:100%;
@@ -177,4 +178,8 @@ footer
 .close{
     margin-top:0;
     margin-right:0;
+}
+
+.content{
+    width:80%;
 }
