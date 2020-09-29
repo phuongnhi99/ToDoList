@@ -36,12 +36,7 @@ footer
     //border: 1px solid #ABB2B9;
     margin-top: 70px;
     overflow:auto;
-}
-#coverTask {
-    height: 800px;
-    width: 100%;
-    border: 1px solid #ABB2B9;
-    margin-top: 200px;
+    position:absolute;
 }
 
 .container .row .col {
@@ -58,20 +53,26 @@ footer
 }
 
 .list-group .card {
-    margin-left: -5px;
-    margin-bottom: 7px;
-    margin-top: 7px;
-    padding:5px;
+   margin:10px;
+    /*padding:5px;*/
     border-color: #F2F3F4;
     border-bottom-color: seagreen;
     height: 80px;
-    width: 105%;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
     color:black;
+    
+    padding:0;
 }
-.card-body{
-    overflow:auto;
-    height:305px;
+.row .col .card-body {
+    overflow: auto;
+    height: 305px;
+    margin: 0;
+    padding: 0px;
+   
+}
+
+.list-group .card .card-body {
+    overflow: hidden;
 }
 
 
@@ -114,4 +115,66 @@ footer
 .container .row .late {
     background-color: #D0693A;
     border-color: #D0693A;
+}
+
+
+.btn-change-status-done {
+    margin-left: 0px;
+    height: 100%;
+    margin-top: 0;
+    border-bottom-left-radius: 5px !important;
+    border-top-left-radius: 5px !important;
+    background-color: #415A77;
+    padding: 15px;
+    z-index: 0 !important;
+    color: white;
+}
+
+.btn-change-status-inprogress {
+    margin-top: 0px;
+    margin-right: -1px;
+    height: 100%;
+    border-bottom-right-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    background-color: seagreen;
+    padding: 15px;
+    z-index: 0 !important;
+    color:white;
+}
+
+.bd{
+    border:0;
+}
+
+.edit-cover{
+    width:100%;
+    position:fixed;
+    margin-top:60px;
+    position:absolute;
+    height:90%;
+    //visibility:hidden;
+}
+.edit-content {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    opacity: 1;
+    position: absolute;
+    z-index: 10;
+    margin-top: 3%;
+    margin-left: 10%;
+    padding:20px;
+}
+
+.blur-bg {
+    width:100%;
+    height:100%;
+    background-color: black;
+    opacity: 0.5;
+    position:absolute;
+}
+
+.close{
+    margin-top:0;
+    margin-right:0;
 }
