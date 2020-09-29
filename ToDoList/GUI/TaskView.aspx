@@ -177,7 +177,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputCity">Partner</label>
-                        <select id="inputState" class="form-control">
+                        <select id="inputState" class="form-control" multiple>
                             <option selected>Choose...</option>
                             <option>...</option>
                         </select>
