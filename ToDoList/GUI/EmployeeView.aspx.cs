@@ -15,7 +15,6 @@ namespace ToDoList
         {
             abc.InnerHtml = "";
             List<Entity.Employee> emp = EmployeeBLL.GetAll();
-
             tblEmployee.DataSource = emp.ToList();
             tblEmployee.DataBind();
             foreach (Entity.Employee a in emp)

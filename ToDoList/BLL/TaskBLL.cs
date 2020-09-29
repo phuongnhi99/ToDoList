@@ -29,33 +29,33 @@ namespace ToDoList.BLL
 
         public static List<Task> GetTaskDone()
         {
-            return obj.GetTaskProgress();
+            return obj.GetTaskDone();
         }
 
         public static List<Task> GetTaskLate()
         {
-            return obj.GetTaskProgress();
+            return obj.GetTaskLate();
         }
 
-        //public static Task GetTask(int TaskId)
+        //public static Task GetTask(string ID)
         //{
         //    return obj.GetTask();
         //}
 
 
-        public static void AddTask(Task ta)
+        public static void AddTask(Task task)
         {
-            obj.AddTask(ta);
+            obj.AddTask(task);
         }
 
-        public static void EditTask(Task ta)
+        public static void EditTask(Task task)
         {
-            obj.EditTask(ta);
+            obj.EditTask(task);
         }
 
-        public static void DeleteTask(Task ta)
+        public static void DeleteTask(Task task)
         {
-            obj.DeleteTask(ta);
+            obj.DeleteTask(task);
         }
     }
 }
