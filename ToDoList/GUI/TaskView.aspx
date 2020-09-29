@@ -132,12 +132,10 @@
     <div class="edit-cover" >
          <form>
         <div class="edit-content card" runat="server">
-          
                 <div class="card-header">
-                <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
-                <h4>TASK</h4>
-                    </div>
-
+                  <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
+                  <h4>TASK</h4>
+                </div>
                 <div class="card-body" style="overflow:auto">
                  <div class="form-row ">
                     <div class="form-group col-md-6">
