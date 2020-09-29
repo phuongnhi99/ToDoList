@@ -37,10 +37,10 @@ namespace ToDoList.BLL
             return obj.GetTaskLate();
         }
 
-        public static Task GetTask(string ID)
-        {
-            return obj.GetTask();
-        }
+        //public static Task GetTask(string ID)
+        //{
+        //    return obj.GetTask();
+        //}
 
 
         public static void AddTask(Task task)

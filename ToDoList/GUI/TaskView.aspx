@@ -128,13 +128,17 @@
     </div>
 
 
-
-    <div class="edit-cover" id="edit_cover" runat="server">
-       
-        <div class="edit-content" runat="server">
-            <form>
+    <div id="edit_cover" runat="server" >
+    <div class="edit-cover" >
+         <form>
+        <div class="edit-content card" runat="server">
+          
+                <div class="card-header">
                 <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
-                <h4>EMPLOYEE</h4>
+                <h4>TASK</h4>
+                    </div>
+
+                <div class="card-body" style="overflow:auto">
                  <div class="form-row ">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Name</label>
@@ -148,11 +152,11 @@
                 <div class="form-group row">
                     
                     <div class="col-6">
-                        <label for="example-date-input" class="col-2 col-form-label">Start Day</label>
+                        <label for="example-date-input" class="col-4 col-form-label">Start Day</label>
                         <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
                     </div>
                     <div class="col-6">
-                        <label for="example-date-input" class="col-2 col-form-label">Đeadline</label>
+                        <label for="example-date-input" class="col-4 col-form-label">Đeadline</label>
                         <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
                     </div>
                 </div>
@@ -188,9 +192,17 @@
                     <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-            </form>
+
+
+            </div>
+      
+        <div class="card-footer">hello</div>
+             </div>
+             </form>
+         
         </div>
+                
+
          <div class="blur-bg"</div>
     </div>
 </asp:Content>
