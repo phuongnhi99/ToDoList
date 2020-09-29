@@ -81,7 +81,7 @@ namespace ToDoList.DAL
                         return new Entity.Employee()
                         {
                             Email = dr["Email"].ToString(),
-                            ID = dr["ID"].ToString(),
+                            ID = Convert.ToInt32(dr["ID"].ToString()),
                             PassWord = dr["Password"].ToString(),
                             Name = dr["Name"].ToString(),
                             DateOfBirth = Convert.ToDateTime(dr["DateOfBirth"].ToString()),
@@ -108,7 +108,7 @@ namespace ToDoList.DAL
                     {
                         return new Entity.Employee()
                         {
-                            ID = dr["ID"].ToString(),
+                            ID = Convert.ToInt32(dr["ID"].ToString()),
                             Email = dr["Email"].ToString(),                           
                         };
                     }
