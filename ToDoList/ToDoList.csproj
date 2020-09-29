@@ -148,8 +148,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\CommentBLL.cs" />
+    <Compile Include="BLL\PartnerBLL.cs" />
     <Compile Include="BLL\TaskBLL.cs" />
     <Compile Include="DAL\CommentDAL.cs" />
+    <Compile Include="DAL\PartnerDAL.cs" />
     <Compile Include="DAL\TaskDAL.cs" />
     <Compile Include="Entity\Comment.cs" />
     <Compile Include="Entity\Partner.cs" />

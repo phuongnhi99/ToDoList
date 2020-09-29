@@ -27,7 +27,7 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@ID", comment.ID);
             cmd.ExecuteNonQuery();
         }
-        public void updateEmp(Comment comment)
+        public void updateComment(Comment comment)
         {
             SQLHelper.DbConnection();
             string query = "update Comment set Description =@Description  where ID = @ID";
