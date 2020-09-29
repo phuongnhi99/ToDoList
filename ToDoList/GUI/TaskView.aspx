@@ -17,34 +17,10 @@
                         <ul class="list-group list-group-flush">
                             <li class="card">
                                 <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
+                                    <div class="card-title m-0"></div>
                                     <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
                                 </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 float-md-right status-progress-btn"><i class="fa fa-arrow-right"></i></button>
-                                </div>
-                            </li>
+                            </li>                  
                         </ul>
                     </div>
                     <div class="card-footer">
@@ -56,29 +32,11 @@
                     <div class="card-header">
                         <h5 class="card-title">DONE</h5>
                     </div>
-                    <div class="card-body">
+                    <div id="done" runat="server" class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
                                 <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                    <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
+                                    <div class="card-title m-0"></div>
                                     <button class="btn p-1 status-done-btn"><i class="fa fa-arrow-left"></i></button>
                                 </div>
                             </li>
@@ -92,26 +50,11 @@
                     <div class="card-header">
                         <h5 class="card-title">LATE</h5>
                     </div>
-                    <div class="card-body">
+                    <div id="late" runat="server" class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
                                 <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
+                                    <div class="card-title m-0"></div>
                                 </div>
                             </li>
                         </ul>

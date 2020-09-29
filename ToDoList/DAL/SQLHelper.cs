@@ -17,7 +17,7 @@ namespace ToDoList.DAL
             // db.Open();
 
             //DESKTOP-NIVOU6F\SQLEXPRESS
-            db = new SqlConnection(@"server=DESKTOP-NIVOU6F\SQLEXPRESS; database=ToDoList; integrated security = true;");
+            db = new SqlConnection(@"server=.; database=ToDoList; integrated security = true;");
 
             db.Open();
         }
