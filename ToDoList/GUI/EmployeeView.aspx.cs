@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using ToDoList.BLL;
 
@@ -25,7 +26,7 @@ namespace ToDoList
                                 "<td>" + a.PhoneNumber + "</td>" +
                                 "<td>" + a.DateOfBirth.ToString("dd/MM/yyyy") + "</td>" +
                                 "<td>" + a.Position + "</td>" +
-                                "<td><button id="+a.ID+" onserverclick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
+                                "<td><button id="+a.ID+ " runat=\"server\" OnClick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
                                 "</tr>";
 
             if (Session["Email"] == null)
@@ -48,7 +49,6 @@ namespace ToDoList
                 Level = txtLevel.Text
             };
             EmployeeBLL.GetEmployeeByID(btnAdd.AccessKey);
-            EmployeeBLL.AddEmp(employee);
             Page_Load(sender, e);
         }
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -70,12 +70,11 @@ namespace ToDoList
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            Entity.Employee employee = new Entity.Employee()
-            {
-                ID = txtID.Text,
-            };
-            EmployeeBLL.delete(employee);
-            Page_Load(sender, e);
+            txtID.Text = "aaaaa";
+        }
+        protected void btnAdd_Click1(object sender, EventArgs e)
+        {
+            txtID.Text = "bbbbbb";
         }
     }
 }
