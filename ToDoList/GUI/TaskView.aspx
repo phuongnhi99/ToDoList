@@ -144,11 +144,12 @@
 
 
 
-    <div class="edit-cover">
+    <div class="edit-cover" id="edit_cover" runat="server">
        
-        <div class="edit-content">
+        <div class="edit-content" runat="server">
             <form>
-                <div class="close"><i class="fa fa-arrow-left"></i></div>
+                <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
+                <h4>EMPLOYEE</h4>
                  <div class="form-row ">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Name</label>

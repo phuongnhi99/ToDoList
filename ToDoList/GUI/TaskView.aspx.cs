@@ -10,9 +10,9 @@ using ToDoList.Entity;
 namespace ToDoList.GUI
 {
     public partial class WebForm1 : System.Web.UI.Page
-    {
+    { 
         public List<Task> DataSource { get; private set; }
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             //progress.InnerHtml = "";
@@ -36,7 +36,11 @@ namespace ToDoList.GUI
         {
             /* Verifies that the control is rendered */
         }
-
+        protected void btnClose_Clicks(object sender, EventArgs e)
+        {
+            if(edit_cover.Visible == true)
+            edit_cover.Visible = false;
+        }
 
         protected void Unnamed1_SelectedIndexChanged(object sender, EventArgs e)
         {
