@@ -28,6 +28,7 @@ namespace ToDoList
                                 "<td>" + a.Position + "</td>" +
                                 "<td><button id="+a.ID+ " runat=\"server\" OnClick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
                                 "</tr>";
+
             //if (Session["Email"] == null)
             //{
             //    Response.Redirect("login.aspx");
@@ -36,7 +37,7 @@ namespace ToDoList
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             var md5 = new MD5CryptoServiceProvider();
-            Entity.Employee employee = new Entity.Employee()
+            if (EmployeeBLL.checkduplicate(txtEmail.Text) ==0)
             {
                 ID = txtID.Text,
                 Email = txtEmail.Text,
@@ -54,7 +55,7 @@ namespace ToDoList
         {
             Entity.Employee employee = new Entity.Employee()
             {
-                ID = txtID.Text,
+                ID = Convert.ToInt32(txtID.Text),
                 Email = txtEmail.Text,
                 PassWord = txtPassWord.Text,
                 Name = txtName.Text,

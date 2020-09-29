@@ -12,6 +12,10 @@ namespace ToDoList.BLL
         {
             return obj.checklogin(email, pass);
         }
+        public static int checkduplicate(string email)
+        {
+            return obj.checkduplicate(email);
+        }
         public static List<Entity.Employee> GetAll()
         {
             return obj.GetAll();
@@ -41,5 +45,6 @@ namespace ToDoList.BLL
         {
             obj.Delete(employee);
         }
+
     }
 }
