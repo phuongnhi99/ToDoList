@@ -64,7 +64,7 @@
         </form>
     </main>
 <%---------------Modal profile---------------%>
-    <div class="modal fade" id="modalProfileForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalProfileForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" runat="server">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
@@ -76,34 +76,49 @@
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <i class="fas fa-user prefix grey-text"></i>
-              <input type="text" id="username" class="form-control" disabled>
+              <input runat="server" type="text" id="username" class="form-control" disabled>
             </div>
             <div class="md-form mb-5">
               <i class="fas fa-envelope prefix grey-text"></i>
-              <input type="email" id="email" class="form-control" disabled>
+              <input runat="server" type="email" id="email" class="form-control" disabled>
             </div>
             <div class="row">
                 <div class="md-form mb-5 col-6">
                     <i class="fas fa-phone prefix grey-text"></i>
-                    <input type="text" id="phonenumber" class="form-control" disabled>
+                    <input runat="server" type="text" id="phonenumber" class="form-control" disabled>
                 </div>
                 <div class="md-form mb-5 col-6">
                     <i class="fas fa-calendar prefix grey-text"></i>
-                    <input type="date" id="dayofbirth" class="form-control" disabled>
+                    <input runat="server" type="datetime" id="dayofbirth" class="form-control" disabled>
                 </div>
+                <div class="row">
+                    <div class="md-form mb-5 col-6">
+                        <i class="fas fa-phone prefix grey-text"></i>
+                        <input type="text" id="phonenumber" class="form-control" disabled>
+                    </div>
+                    <div class="md-form mb-5 col-6">
+                        <i class="fas fa-calendar prefix grey-text"></i>
+                        <input type="date" id="dayofbirth" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="md-form mb-5">
+                  <i class="fas fa-location-arrow prefix grey-text"></i>
+                  <input type="text" id="position" class="form-control" disabled>
+                </div>
+              </div>
             </div>
             <div class="md-form mb-5">
               <i class="fas fa-location-arrow prefix grey-text"></i>
-              <input type="text" id="position" class="form-control" disabled>
+              <input runat="server" type="text" id="position" class="form-control" disabled>
             </div>
           </div>
         </div>
-      </div>
     </div>
+
     <%-------------End Modal profile-------------%>
 
     <%---------------Modal Edit---------------%>
-    <div class="modal fade" id="modalEditProfileForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalEditProfileForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" runat="server" >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
@@ -116,45 +131,51 @@
             <form>
                 <div class="md-form mb-5">
                     <i class="fas fa-user prefix grey-text"></i>
-                    <input type="text" id="username-edit" class="form-control">
-                    <label class="valid-feedback"></label>
+                    <input runat="server" type="text" id="username_edit" class="form-control">
+                    <label runat="server"  class="valid-feedback"></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <input type="email" id="email-edit" class="form-control">
-                    <label class="valid-feedback"></label>
+                    <input runat="server" type="email" id="email_edit" class="form-control">
+                    <label runat="server" class="valid-feedback"></label>
                 </div>
                 <div class="md-form mb-5">
                     <i class="fas fa-key prefix grey-text"></i>
-                    <input type="email" id="old-password" class="form-control" placeholder="Old password">
-                    <label class="valid-feedback"></label>
+                    <input runat="server" type="email" id="old_password" class="form-control" placeholder="Old password">
+                    <label runat="server" class="valid-feedback"></label>
                 </div>
                 <div class="row">
                     <div class="col-6 md-form mb-5">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="new-password" class="form-control" placeholder="New password">
-                        <label class="valid-feedback"></label>
+                        <input runat="server" type="password" id="new_password" class="form-control" placeholder="New password">
+                        <label runat="server" class="valid-feedback"></label>
                     </div>
                     <div class="col-6 md-form mb-5">
                         <i class="fas fa-lock prefix grey-text"></i>
-                        <input type="password" id="confirm-password" class="form-control" placeholder="Confirm password">
-                        <label class="valid-feedback"></label>
+                        <input runat="server" type="password" id="confirm_password" class="form-control" placeholder="Confirm password">
+                        <label runat="server" class="valid-feedback"></label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="md-form mb-5 col-6">
                         <i class="fas fa-phone prefix grey-text"></i>
-                        <input type="text" id="phonenumber-edit" class="form-control">
-                        <label class="valid-feedback"></label>
+                        <input runat="server" type="text" id="phonenumber_edit" class="form-control">
+                        <label runat="server" class="valid-feedback"></label>
                     </div>
                     <div class="md-form mb-5 col-6">
                         <i class="fas fa-calendar prefix grey-text"></i>
-                        <input type="date" id="dayofbirth-edit" class="form-control text-dark">
-                        <label class="valid-feedback"></label>
+                        <input runat="server" type="datetime" id="dayofbirth_edit" class="form-control text-dark">
+                        <label runat="server" class="valid-feedback"></label>
                     </div>
                 </div>
                 <button class="btn btn-light btn-sm btn-rounded" type="reset">Cancel</button>
-                <button class="btn btn-dark btn-sm btn-rounded" type="submit">Done</button>   
+                <button class="btn btn-dark btn-sm btn-rounded" type="submit">Done</button>  
+
+                <div class="row">
+                    <button class="btn btn-light btn-sm btn-rounded">Xem</button>
+                    <button class="btn btn-light btn-sm btn-rounded">Xóa</button>
+                    <button class="btn btn-light btn-sm btn-rounded"><i class="fas fa-trash"></i></button>
+                </div>
             </form>
           </div>
         </div>

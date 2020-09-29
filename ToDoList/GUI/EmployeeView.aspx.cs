@@ -23,8 +23,9 @@ namespace ToDoList
                                 "<td>" + a.Email + "</td>" +
                                 "<td>" + a.Name + "</td>" +
                                 "<td>" + a.PhoneNumber + "</td>" +
-                                "<td>" + a.DateOfBirth + "</td>" +
+                                "<td>" + a.DateOfBirth.ToString("dd/MM/yyyy") + "</td>" +
                                 "<td>" + a.Position + "</td>" +
+                                "<td><button id="+a.ID+" onserverclick=\"btnAdd_Click1\"><i class=\"fas fa-eye\"></i></button>" +
                                 "</tr>";
 
             //if (Session["Email"] == null)
@@ -32,12 +33,12 @@ namespace ToDoList
             //    Response.Redirect("login.aspx");
             //}
         }
-
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             var md5 = new MD5CryptoServiceProvider();
             if (EmployeeBLL.checkduplicate(txtEmail.Text) ==0)
             {
+
                 Response.Redirect("employeeview.aspx");
                 Page_Load(sender, e);
             }
@@ -58,6 +59,7 @@ namespace ToDoList
             }
             
             
+
         }
         protected void btnEdit_Click(object sender, EventArgs e)
         {
@@ -67,7 +69,7 @@ namespace ToDoList
                 Email = txtEmail.Text,
                 PassWord = txtPassWord.Text,
                 Name = txtName.Text,
-                DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text),
+                DateOfBirth = (Convert.ToDateTime(txtDateOfBirth.Text)).Date,
                 PhoneNumber = txtPhoneNumber.Text,
                 Position = txtPosition.Text,
                 Level = txtLevel.Text
