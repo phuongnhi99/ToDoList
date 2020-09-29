@@ -48,7 +48,7 @@ namespace ToDoList.GUI
             foreach (Entity.Task task_progress in taskProgress)
                 progress.InnerHtml = progress.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<li class=\"card\">" +
+                        "<li class=\"card\" >" +
                             "<div class=\"card-body input-group\">" +
                              "<div class=\"form-control bd\">" +
                                 task_progress.Name +
@@ -142,6 +142,8 @@ namespace ToDoList.GUI
                             "</div>" +
                         "</li>" +
                     "</ul>";
+
+            edit_cover.Visible = false;
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
@@ -152,5 +154,79 @@ namespace ToDoList.GUI
             if(edit_cover.Visible == true)
             edit_cover.Visible = false;
         }
+
+
+        protected void newtask_ServerClick(object sender, EventArgs e)
+        {
+            edit_cover.Visible = true;
+            btnsave.InnerText = "ADD";
+        }
+
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            if (btnsave.InnerText == "ADD")
+            {
+               string a= (string)Session.Contents["Email"];
+                Entity.Employee idemp = EmployeeBLL.GetIDbyEmail(a);
+                Task task = new Task()
+                {
+
+                    Name = inputName.Value,
+                    OwnerId = idemp.ID,
+                    StartDay = Convert.ToDateTime(start_date.Value),
+                    Deadline = Convert.ToDateTime(deadline.Value),
+                    Description = inputDescription.Value,
+                    Attachment = FileUpload1.FileName,
+                    Visability = Visability.Value,
+                    Status = Status.Value,
+                    Partner = Partner.Value,
+                    Comment = "",
+                };
+                if (FileUpload1.HasFile)
+                {
+                    string fileName = FileUpload1.FileName;
+                    string filePath = Server.MapPath(@"File\" + fileName);
+                    FileUpload1.SaveAs(filePath);
+                }
+                TaskBLL.AddTask(task);
+                Page_Load(sender, e);
+            }
+            else if(btnsave.InnerText == "EDIT")
+            {
+                string id = "";
+                Task t = TaskBLL.GetTask(id);
+                Task task = new Task()
+                {
+
+                    Name = inputName.Value,
+                    OwnerId = t.OwnerId,
+                    StartDay = Convert.ToDateTime(start_date.Value),
+                    Deadline = Convert.ToDateTime(deadline.Value),
+                    Description = inputDescription.Value,
+                    Attachment = FileUpload1.FileName,
+                    Visability = Visability.Value,
+                    Status = Status.Value,
+                    Partner = Partner.Value,
+                    Comment = "",
+                };
+                if (FileUpload1.HasFile)
+                {
+                    string fileName = FileUpload1.FileName;
+                    string filePath = Server.MapPath(@"File\" + fileName);
+                    FileUpload1.SaveAs(filePath);
+                }
+                TaskBLL.EditTask(task);
+                Page_Load(sender, e);
+            }
+
+        }
+
+        //protected void hello(object sender, EventArgs e)
+        //{
+        //    html.InnerHtml = "byebye";
+        //    //HtmlButton button = (HtmlButton)sender;
+        //    //TaskBLL.ChangeStatusToDone(button.ID);
+        //}
+
     }
 }

@@ -13,7 +13,7 @@ namespace ToDoList.GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Entity.Task> task = TaskBLL.GetAllTask();
+            List<Task> task = TaskBLL.GetAllTask();
             GridView1.DataSource = task.ToList();
             GridView1.DataBind();
         }
