@@ -28,10 +28,10 @@ namespace ToDoList
                                 "<td>" + a.Position + "</td>" +
                                 "</tr>";
 
-            if (Session["Email"] == null)
-            {
-                Response.Redirect("login.aspx");
-            }
+            //if (Session["Email"] == null)
+            //{
+            //    Response.Redirect("login.aspx");
+            //}
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

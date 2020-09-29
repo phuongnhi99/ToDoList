@@ -18,8 +18,8 @@ namespace ToDoList.DAL
 
             //DESKTOP-NIVOU6F\SQLEXPRESS
 
-            //DESKTOP - R826P0H\MSSQLSERVER1
-              db = new SqlConnection(@"server=DESKTOP-NIVOU6F\SQLEXPRESS; database=ToDoList; integrated security = true;");
+            //DESKTOP-R826P0H\MSSQLSERVER1
+              db = new SqlConnection(@"server=DESKTOP-R826P0H\MSSQLSERVER1; database=ToDoList; integrated security = true;");
 
             db.Open();
         }
