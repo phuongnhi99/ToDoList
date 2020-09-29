@@ -22,11 +22,11 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Entity.Employee em = new Entity.Employee();
-                    em.ID = reader["ID"].ToString();
+                    em.ID = Convert.ToInt32(reader["ID"].ToString());
                     em.Email = reader["Email"].ToString();
                     em.PassWord = reader["PassWord"].ToString();
                     em.Name = reader["Name"].ToString();
-                    em.DateOfBirth = Convert.ToDateTime( reader["DateOfBirth"].ToString());
+                    em.DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"].ToString());
                     em.PhoneNumber = reader["PhoneNumber"].ToString();
                     em.Position = reader["Position"].ToString();
                     em.Level = reader["Level"].ToString();
@@ -41,7 +41,7 @@ namespace ToDoList.DAL
         {
             SQLHelper.DbConnection();
             string query = "Select * from EMPLOYEE where ID=@ID";
-            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             cmd.Parameters.AddWithValue("@ID", ID);
             SqlDataReader dr = cmd.ExecuteReader();
             {
@@ -51,7 +51,7 @@ namespace ToDoList.DAL
                     {
                         return new Entity.Employee()
                         {
-                            ID = dr["ID"].ToString(),
+                            ID = Convert.ToInt32(dr["ID"].ToString()),
                             Email = dr["Email"].ToString(),
                             PassWord = dr["Password"].ToString(),
                             Name = dr["Name"].ToString(),
@@ -65,13 +65,63 @@ namespace ToDoList.DAL
                 return null;
             }
         }
+
+        public Entity.Employee GetEmployeeByEmail(string Email)
+        {
+            SQLHelper.DbConnection();
+            string query = "Select * from EMPLOYEE where Email=@Email";
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            cmd.Parameters.AddWithValue("@Email", Email);
+            SqlDataReader dr = cmd.ExecuteReader();
+            {
+                if (dr.HasRows)
+                {
+                    if (dr.Read())
+                    {
+                        return new Entity.Employee()
+                        {
+                            Email = dr["Email"].ToString(),
+                            ID = Convert.ToInt32(dr["ID"].ToString()),
+                            PassWord = dr["Password"].ToString(),
+                            Name = dr["Name"].ToString(),
+                            DateOfBirth = Convert.ToDateTime(dr["DateOfBirth"].ToString()),
+                            PhoneNumber = dr["PhoneNumber"].ToString(),
+                            Position = dr["Position"].ToString(),
+                            Level = dr["Level"].ToString()
+                        };
+                    }
+                }
+                return null;
+            }
+        }
+        public Entity.Employee GetIDbyEmail(string Email)
+        {
+            SQLHelper.DbConnection();
+            string query = "Select ID from EMPLOYEE where Email=@Email";
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            cmd.Parameters.AddWithValue("@Emial", Email);
+            SqlDataReader dr = cmd.ExecuteReader();
+            {
+                if (dr.HasRows)
+                {
+                    if (dr.Read())
+                    {
+                        return new Entity.Employee()
+                        {
+                            ID = Convert.ToInt32(dr["ID"].ToString()),
+                            Email = dr["Email"].ToString(),                           
+                        };
+                    }
+                }
+                return null;
+            }
+        }
         public void AddEmp(Entity.Employee employee)
         {
             
                 SQLHelper.DbConnection();
-                string query = "insert into EMPLOYEE (ID, Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (@ID, @Email, @Password, @Name, @DateOfBirth, @PhoneNumber, @Position, @Level)";
+                string query = "insert into EMPLOYEE (Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values ( @Email, @Password, @Name, @DateOfBirth, @PhoneNumber, @Position, @Level)";
                 SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-                cmd.Parameters.AddWithValue("ID", employee.ID);
                 cmd.Parameters.AddWithValue("Email", employee.Email);
                 cmd.Parameters.AddWithValue("Password", employee.PassWord);
                 cmd.Parameters.AddWithValue("Name", employee.Name);
@@ -120,5 +170,21 @@ namespace ToDoList.DAL
             else
                 return 0;
         }
+        public int checkduplicate(string Email)
+
+        {
+            string query = "Select Count(*) from employee where Email=@Email";
+            SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 100));
+            cmd.Parameters["@Email"].Value = Email;
+            int dem = (int)cmd.ExecuteScalar();
+            if (dem > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+     
     }
 }
