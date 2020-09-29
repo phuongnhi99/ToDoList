@@ -188,12 +188,15 @@ footer
 .content{
     width:80%;
 }
-
-
-/*Downloaded from https://www.codeseek.co/magnus16/simple-comment-box-using-bootstrap-3-buGiB */
-@import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
-
-.detailBox {
+.btnmennu {
+    border: none;
+    padding: 7px 7px;
+    cursor: pointer;
+    margin-left: 4px;
+    border-radius: 7px;
+}
+  
+    .detailBox {
     width: 320px;
     border: 1px solid #bbb;
     margin: 50px;
@@ -215,13 +218,13 @@ footer
     border-top: 1px dotted #bbb;
 }
 
-    .commentBox .form-group:first-child, .actionBox .form-group:first-child {
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
         width: 80%;
     }
 
-    .commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
         width: 18%;
-    }
+   }
 
 .actionBox .form-group * {
     width: 100%;
