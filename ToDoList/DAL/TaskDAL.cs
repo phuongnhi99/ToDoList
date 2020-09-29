@@ -64,7 +64,7 @@ namespace ToDoList.DAL
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
                     task.Status = reader.GetString(6);
-                    task.Visibility = reader.GetString(7);
+                    task.Visability = reader.GetString(7);
                     //task.Attachment = reader.GetString(8);
                     //task.Comment = reader.GetString(9);
                     //task.Partner = reader.GetString(10);
@@ -94,7 +94,7 @@ namespace ToDoList.DAL
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
                     task.Status = reader.GetString(6);
-                    task.Visibility = reader.GetString(7);
+                    task.Visability = reader.GetString(7);
                     //task.Attachment = reader.GetString(8);
                     //task.Comment = reader.GetString(9);
                     //task.Partner = reader.GetString(10);
@@ -124,7 +124,7 @@ namespace ToDoList.DAL
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
                     task.Status = reader.GetString(6);
-                    task.Visibility = reader.GetString(7);
+                    task.Visability = reader.GetString(7);
                     //task.Attachment = reader.GetString(8);
                     //task.Comment = reader.GetString(9);
                     //task.Partner = reader.GetString(10);
