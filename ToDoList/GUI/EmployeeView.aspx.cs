@@ -16,8 +16,6 @@ namespace ToDoList
         {
             abc.InnerHtml = "";
             List<Entity.Employee> emp = EmployeeBLL.GetAll();
-            tblEmployee.DataSource = emp.ToList();
-            tblEmployee.DataBind();
             foreach (Entity.Employee a in emp)
                 abc.InnerHtml = abc.InnerHtml + "<tr>" +
                                 "<td>" + a.ID + "</td>" +
@@ -38,49 +36,6 @@ namespace ToDoList
             //    Response.Redirect("login.aspx");
             //}
         }
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            var md5 = new MD5CryptoServiceProvider();
-            if (EmployeeBLL.checkduplicate(txtEmail.Text) ==0)
-            {
-                ID = txtID.Text,
-                Email = txtEmail.Text,
-                PassWord = EasyEncryption.MD5.ComputeMD5Hash(txtPassWord.Text),
-                Name = txtName.Text,
-                DateOfBirth = (Convert.ToDateTime(txtDateOfBirth.Text)).Date,
-                PhoneNumber = txtPhoneNumber.Text,
-                Position = txtPosition.Text,
-                Level = txtLevel.Text
-            };
-            EmployeeBLL.GetEmployeeByID(btnAdd.AccessKey);
-            Page_Load(sender, e);
-        }
-        protected void btnEdit_Click(object sender, EventArgs e)
-        {
-            Entity.Employee employee = new Entity.Employee()
-            {
-                ID = Convert.ToInt32(txtID.Text),
-                Email = txtEmail.Text,
-                PassWord = txtPassWord.Text,
-                Name = txtName.Text,
-                DateOfBirth = (Convert.ToDateTime(txtDateOfBirth.Text)).Date,
-                PhoneNumber = txtPhoneNumber.Text,
-                Position = txtPosition.Text,
-                Level = txtLevel.Text
-            };
-            EmployeeBLL.updateEmp(employee);
-            Page_Load(sender, e);
-        }
-
-        protected void btnDelete_Click(object sender, EventArgs e)
-        {
-            txtID.Text = "aaaaa";
-        }
-        protected void btnAdd_Click1(object sender, EventArgs e)
-        {
-            txtID.Text = "bbbbbb";
-        }
-
         protected void btn_close_ServerClick(object sender, EventArgs e)
         {
             if(form_add.Visible == true)
