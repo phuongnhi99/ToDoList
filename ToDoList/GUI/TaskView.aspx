@@ -66,7 +66,7 @@
                     <div class="card-header">
                         <h5 class="card-title">DONE</h5>
                     </div>
-                    <div class="card-body">
+                    <div id="done" runat="server" class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
                                 <div class="card-body input-group">
@@ -110,26 +110,11 @@
                     <div class="card-header">
                         <h5 class="card-title">LATE</h5>
                     </div>
-                    <div class="card-body">
+                    <div id="late" runat="server" class="card-body">
                         <ul class="list-group list-group-flush">
                             <li class="card">
                                 <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
-                                </div>
-                            </li>
-                            <li class="card">
-                                <div class="card-body p-1">
-                                    <div class="card-title m-0">Special title treatment</div>
+                                    <div class="card-title m-0"></div>
                                 </div>
                             </li>
                         </ul>

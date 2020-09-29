@@ -42,9 +42,6 @@ namespace ToDoList.DAL
             return data;
         }
 
-
-        
-
         public List<Task> GetTaskProgress()
         {
             List<Task> data = new List<Task>();
@@ -108,7 +105,7 @@ namespace ToDoList.DAL
         public List<Task> GetTaskLate()
         {
             List<Task> data = new List<Task>();
-            string query = "SELECT * FROM TASK WHERE Status = N'Trễ hạn'";
+            string query = "SELECT * FROM TASK WHERE Deadline < GETDATE()";
             DAL.SQLHelper.DbConnection();
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -136,7 +133,6 @@ namespace ToDoList.DAL
         }
 
         public Task GetTask(string ID)
-
         {
             Task task = new Task();
             DAL.SQLHelper.DbConnection();
