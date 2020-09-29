@@ -24,9 +24,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = reader.GetString(0);
+                    task.ID = Convert.ToInt32(reader.GetString(0));
                     task.Name = reader.GetString(1);
-                    task.OwnerId = reader.GetString(2);
+                    task.OwnerId =Convert.ToInt32(reader.GetString(2));
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
@@ -54,9 +54,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = reader.GetString(0);
+                    task.ID = Convert.ToInt32(reader.GetString(0));
                     task.Name = reader.GetString(1);
-                    task.OwnerId = reader.GetString(2);
+                    task.OwnerId = Convert.ToInt32(reader.GetString(2));
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
@@ -84,9 +84,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = reader.GetString(0);
+                    task.ID = Convert.ToInt32(reader.GetString(0));
                     task.Name = reader.GetString(1);
-                    task.OwnerId = reader.GetString(2);
+                    task.OwnerId = Convert.ToInt32(reader.GetString(2));
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
@@ -114,9 +114,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = reader.GetString(0);
+                    task.ID = Convert.ToInt32(reader.GetString(0));
                     task.Name = reader.GetString(1);
-                    task.OwnerId = reader.GetString(2);
+                    task.OwnerId = Convert.ToInt32(reader.GetString(2));
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
@@ -142,9 +142,9 @@ namespace ToDoList.DAL
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                task.ID = reader["ID"].ToString();
+                task.ID = Convert.ToInt32(reader["ID"].ToString());
                 task.Name = reader["Name"].ToString();
-                task.OwnerId = reader["OwnerId"].ToString();
+                task.OwnerId = Convert.ToInt32(reader["OwnerId"].ToString());
                 task.StartDay = Convert.ToDateTime(reader["StartDay"].ToString());
                 task.Deadline = Convert.ToDateTime(reader["Deadline"].ToString());
                 task.Description = reader["Description"].ToString();
@@ -160,10 +160,9 @@ namespace ToDoList.DAL
         public void AddTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
-            string sql = "INSERT INTO TASK (ID, Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment, Comment, Partner) " +
-                "VALUES (@ID, @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment, @Comment, @Partner)";
+            string sql = "INSERT INTO TASK ( Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment, Comment, Partner) " +
+                "VALUES ( @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment, @Comment, @Partner)";
             SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
-            cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.Parameters.AddWithValue("@Name", task.Name);
             cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
             cmd.Parameters.AddWithValue("@StartDay", task.StartDay);

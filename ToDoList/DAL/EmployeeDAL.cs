@@ -22,7 +22,7 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Entity.Employee em = new Entity.Employee();
-                    em.ID = reader["ID"].ToString();
+                    em.ID = Convert.ToInt32(reader["ID"].ToString());
                     em.Email = reader["Email"].ToString();
                     em.PassWord = reader["PassWord"].ToString();
                     em.Name = reader["Name"].ToString();
@@ -41,7 +41,7 @@ namespace ToDoList.DAL
         {
             SQLHelper.DbConnection();
             string query = "Select * from EMPLOYEE where ID=@ID";
-            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             cmd.Parameters.AddWithValue("@ID", ID);
             SqlDataReader dr = cmd.ExecuteReader();
             {
@@ -51,7 +51,7 @@ namespace ToDoList.DAL
                     {
                         return new Entity.Employee()
                         {
-                            ID = dr["ID"].ToString(),
+                            ID = Convert.ToInt32(dr["ID"].ToString()),
                             Email = dr["Email"].ToString(),
                             PassWord = dr["Password"].ToString(),
                             Name = dr["Name"].ToString(),
@@ -69,9 +69,8 @@ namespace ToDoList.DAL
         {
             
                 SQLHelper.DbConnection();
-                string query = "insert into EMPLOYEE (ID, Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (@ID, @Email, @Password, @Name, @DateOfBirth, @PhoneNumber, @Position, @Level)";
+                string query = "insert into EMPLOYEE (Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values ( @Email, @Password, @Name, @DateOfBirth, @PhoneNumber, @Position, @Level)";
                 SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-                cmd.Parameters.AddWithValue("ID", employee.ID);
                 cmd.Parameters.AddWithValue("Email", employee.Email);
                 cmd.Parameters.AddWithValue("Password", employee.PassWord);
                 cmd.Parameters.AddWithValue("Name", employee.Name);
@@ -120,5 +119,21 @@ namespace ToDoList.DAL
             else
                 return 0;
         }
+        public int checkduplicate(string Email)
+
+        {
+            string query = "Select Count(*) from employee where Email=@Email";
+            SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 100));
+            cmd.Parameters["@Email"].Value = Email;
+            int dem = (int)cmd.ExecuteScalar();
+            if (dem > 0)
+            {
+                return 1;
+            }
+            return 0;
+        }
+     
     }
 }

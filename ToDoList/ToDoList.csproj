@@ -149,7 +149,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\TaskBLL.cs" />
+    <Compile Include="DAL\CommentDAL.cs" />
     <Compile Include="DAL\TaskDAL.cs" />
+    <Compile Include="Entity\Comment.cs" />
+    <Compile Include="Entity\Partner.cs" />
     <Compile Include="Entity\Task.cs" />
     <Compile Include="GUI\EmployeeView.aspx.cs">
       <DependentUpon>EmployeeView.aspx</DependentUpon>
