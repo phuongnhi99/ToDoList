@@ -25,11 +25,11 @@ namespace ToDoList
                                 "<td>" + a.PhoneNumber + "</td>" +
                                 "<td>" + a.DateOfBirth + "</td>" +
                                 "<td>" + a.Position + "</td>" +
-                                "<td><div class=\"row\">" +
-                                    "<button class=\"btn btn-outline-info btn-sm\">Xem</button>" +
-                                    "<button class=\"btn btn-outline-info btn-sm\">Xóa</button>" +
-                                    "<button class=\"btn btn-outline-info btn-sm\">sửa</button>" +
-                                "</div>" +
+                                "<td>" +
+                                "<button class=\"btnmennu btn-cyan\"><i class=\"fa fa-eye\"></i></button>" +
+                                "<button class=\"btnmennu btn-light\"><i class=\"fa fa-edit\"></i></button>" +
+                                "<button class=\"btnmennu btn-dark\"><i class=\"fa fa-trash\"></i></button>" +
+                                "</td>" +
                                 "</tr>";
             //if (Session["Email"] == null)
             //{
@@ -79,6 +79,38 @@ namespace ToDoList
             };
             EmployeeBLL.delete(employee);
             Page_Load(sender, e);
+        }
+
+        protected void btn_close_ServerClick(object sender, EventArgs e)
+        {
+            if(form_add.Visible == true)
+            {
+                form_add.Visible = false;
+            }
+        }
+
+        protected void btn_Add_ServerClick(object sender, EventArgs e)
+        {
+            if (form_add.Visible == false)
+            {
+                form_add.Visible = true;
+            }
+        }
+
+        protected void close_edit_ServerClick(object sender, EventArgs e)
+        {
+            if (form_edit.Visible == false)
+            {
+                form_edit.Visible = true;
+            }
+        }
+
+        protected void btn_close_detail_ServerClick(object sender, EventArgs e)
+        {
+            if (detail.Visible == false)
+            {
+                detail.Visible = true;
+            }
         }
     }
 }

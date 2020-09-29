@@ -188,3 +188,12 @@ footer
 .content{
     width:80%;
 }
+
+.btnmennu
+{
+    border: none;
+    padding: 7px 7px;
+    cursor: pointer;
+    margin-left: 4px;
+    border-radius: 7px;
+}
