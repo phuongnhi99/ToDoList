@@ -54,9 +54,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = Convert.ToInt32(reader.GetString(0));
+                    task.ID = reader.GetInt32(0);
                     task.Name = reader.GetString(1);
-                    task.OwnerId = Convert.ToInt32(reader.GetString(2));
+                    task.OwnerId = reader.GetInt32(2);
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
@@ -84,9 +84,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = Convert.ToInt32(reader.GetString(0));
+                    task.ID = reader.GetInt32(0);
                     task.Name = reader.GetString(1);
-                    task.OwnerId = Convert.ToInt32(reader.GetString(2));
+                    task.OwnerId = reader.GetInt32(2);
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
@@ -114,9 +114,9 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = Convert.ToInt32(reader.GetString(0));
+                    task.ID = reader.GetInt32(0);
                     task.Name = reader.GetString(1);
-                    task.OwnerId = Convert.ToInt32(reader.GetString(2));
+                    task.OwnerId = reader.GetInt32(2);
                     task.StartDay = reader.GetDateTime(3);
                     task.Deadline = reader.GetDateTime(4);
                     task.Description = reader.GetString(5);
