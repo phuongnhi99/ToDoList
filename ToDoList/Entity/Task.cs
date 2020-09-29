@@ -7,9 +7,9 @@ namespace ToDoList.Entity
 {
     public class Task
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
-        public string OwnerId { get; set; }
+        public int OwnerId { get; set; }
         public DateTime StartDay { get; set; }
         public DateTime Deadline { get; set; }
         public string  Description { get; set; }
