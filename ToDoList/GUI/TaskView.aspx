@@ -141,14 +141,9 @@
 
         </div>
     </div>
-
-
-
     <div class="edit-cover">
-       
         <div class="edit-content">
-            <form>
-               
+            <form>              
                  <div class="form-row ">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Name</label>
