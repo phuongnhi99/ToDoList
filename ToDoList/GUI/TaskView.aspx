@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col card inprogress ">
                     <div class="card-header">
-                        <h5 id="html" runat="server" class="card-title">IN PROGRESS</h5>
+                        <h5 id="hello" runat="server" class="card-title">IN PROGRESS</h5>
                     </div>
                     <div id="progress" runat="server" class="card-body">                        
                     </div>
@@ -81,26 +81,32 @@
                                 <div class="form-row ">
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCity">Partner</label>
-                                        <select id="inputState" class="form-control" multiple>
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select class="selectpicker form-control" multiple>
+                                                <option>Mustard</option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputState">Status</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select class="selectpicker form-control">
+                                                <option>Mustard</option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputZip">Visability</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select class="selectpicker form-control">
+                                                <option>Mustard</option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -160,11 +166,12 @@
                                             </li>
                                         </ul>
                                         <form class="form-group" role="form">
-                                            <div class="input-group mb-3">
+                                            <div class="input-group mb-6">
                                                 <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                
-                                                    <button class="btn btn-outline-secondary" type="button">Button</button>
-                                                
+                                                <div class="input-group-append">
+                                                    <button class="btn sent btn-dark" type="button">Button</button>
+                                                </div>
+                                              
                                             </div>
                                         </form>
                                     </div>
@@ -175,7 +182,7 @@
                         </div>
                     </div>
 
-                    <div class="card-footer">hello</div>
+                   <%-- <div class="card-footer">hello</div>--%>
                 </div>
             </form>
 
