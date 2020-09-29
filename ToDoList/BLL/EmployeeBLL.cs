@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using ToDoList.DAL;
 
 namespace ToDoList.BLL
@@ -23,7 +20,14 @@ namespace ToDoList.BLL
         {
             return obj.GetEmployeeByID(ID);
         }
-
+        public static Entity.Employee GetIDbyEmail(string Email)
+        {
+            return obj.GetIDbyEmail(Email);
+        }
+        public static Entity.Employee GetEmployeeByEmail(string Email)
+        {
+            return obj.GetEmployeeByEmail(Email);
+        }
         public static void AddEmp(Entity.Employee employee)
         {
             obj.AddEmp(employee);
