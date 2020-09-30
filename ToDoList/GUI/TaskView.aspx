@@ -70,7 +70,7 @@
                     <div class="card-body" style="overflow: auto">
                         <div class="row">
                             <div class="col">
-                                <div class="form-row ">
+                                <div class="form-group row ">
                                     
          
                                     <div class="form-group col-md-6">
@@ -85,19 +85,17 @@
                                 <div class="form-group row">
 
                                     <div class="col-6">
-                                        <label for="start_date" class="col-6 col-form-label">Start Day</label>
+                                        <label for="inputName">Start Day</label>
                                        <input class="form-control" runat="server" type="date" value="2011-08-19" id="start_date">
                                     </div>
                                     <div class="col-6">
-                                        <label for="deadline" class="col-6 col-form-label">Deadline</label>
+                                        <label for="inputName">Deadline</label>
                                         <input class="form-control" runat="server" type="date" value="2011-08-19" id="deadline">
                                     </div>
                                 </div>
 
-                                <div class="form-row ">
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-4">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
                                         <div class="form-group ">
                                         <label for="Partner">Partner</label>
                                         <select runat="server" id="Partner" class="selectpicker form-control" multiple>
@@ -108,20 +106,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-md-4">
-                                         <div class="form-group ">
-                                        <label for="File">File</label>
-                                             <input type="text" runat="server" class="form-control" id="File" placeholder="">
-                                     </div>
-                                    </div>
-
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
                                          <div class="form-group ">
                                         <label for="Visability">Visability</label>
                                         <select runat="server" id="Visability" class="selectpicker form-control">
                                             <option>Public</option>
                                             <option>Private</option>
                                         </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <div class="form-group ">
+                                            <label for="File">File</label>
+                                            <input type="text" runat="server" class="form-control" id="File" placeholder="">
                                         </div>
                                     </div>
                                 </div>
