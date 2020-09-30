@@ -105,13 +105,13 @@ namespace ToDoList.GUI
         protected global::System.Web.UI.HtmlControls.HtmlSelect Partner;
 
         /// <summary>
-        /// Status control.
+        /// File control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect Status;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText File;
 
         /// <summary>
         /// Visability control.
@@ -139,5 +139,32 @@ namespace ToDoList.GUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnsave;
+
+        /// <summary>
+        /// backtask control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton backtask;
+
+        /// <summary>
+        /// valuedescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText valuedescription;
+
+        /// <summary>
+        /// addcomment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton addcomment;
     }
 }
