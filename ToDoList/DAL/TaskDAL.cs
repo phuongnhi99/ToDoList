@@ -132,7 +132,7 @@ namespace ToDoList.DAL
             return data;
         }
 
-        public Task GetTask(string ID)
+        public Task GetTask(int ID)
         {
             Task task = new Task();
             DAL.SQLHelper.DbConnection();
@@ -178,7 +178,7 @@ namespace ToDoList.DAL
         {
             DAL.SQLHelper.DbConnection();
             string sql = "UPDATE TASK SET " +
-                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visability = @Visability, Attachment = @Attachment, Comment = @Comment, Partner = @Partner " +
+                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visability = @Visability, Attachment = @Attachment" +
                 " WHERE ID = @ID";
             SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@Name", task.Name);

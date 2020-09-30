@@ -33,26 +33,41 @@ namespace ToDoList.GUI
                 }
                 if (Request.Form["editInprogress"] != null)
                 {
-                    string editInprogress = Request.Form["editInprogress"];
+                    int editInprogress = Convert.ToInt32(Request.Form["editInprogress"]);
                     Task task = TaskBLL.GetTask(editInprogress);
                     inputName.Value = task.Name;
                     start_date.Value = Convert.ToString(task.StartDay);
                     deadline.Value = Convert.ToString(task.Deadline);
                     inputDescription.Value = task.Description;
+                    id_task.Value = Request.Form["editInprogress"];
                     edit_cover.Visible = true;
                     btnsave.InnerText = "Edit";
                     Page_Load1(sender, e);
                 }
                 if (Request.Form["editDone"] != null)
                 {
-                    string editDone = Request.Form["editDone"];
-
+                    int editDone = Convert.ToInt32(Request.Form["editDone"]);
+                    Task task = TaskBLL.GetTask(editDone);
+                    inputName.Value = task.Name;
+                    start_date.Value = Convert.ToString(task.StartDay);
+                    deadline.Value = Convert.ToString(task.Deadline);
+                    inputDescription.Value = task.Description;
+                    id_task.Value = Request.Form["editDone"];
+                    edit_cover.Visible = true;
+                    btnsave.InnerText = "Edit";
                     Page_Load1(sender, e);
                 }
                 if (Request.Form["editLate"] != null)
                 {
-                    string editLate = Request.Form["editLate"];
-
+                    int editLate = Convert.ToInt32(Request.Form["editLate"]);
+                    Task task = TaskBLL.GetTask(editLate);
+                    inputName.Value = task.Name;
+                    start_date.Value = Convert.ToString(task.StartDay);
+                    deadline.Value = Convert.ToString(task.Deadline);
+                    inputDescription.Value = task.Description;
+                    id_task.Value = Request.Form["editLate"];
+                    edit_cover.Visible = true;
+                    btnsave.InnerText = "Edit";
                     Page_Load1(sender, e);
                 }
             }
@@ -72,7 +87,7 @@ namespace ToDoList.GUI
                     "<ul class=\"list-group list-group-flush\">" +
                         "<li class=\"card\" >" +
                                 "<div class=\"card-body input-group\">" +
-                                "<Button class='btn edit-task '><i class=\"fas fa-ellipsis-v\"></i></Button>" +
+                                "<Button class='btn edit-task' id='btn_edit_task' runat='server' name='editInprogress' value=" + task_progress.ID + "><i class=\"fas fa-ellipsis-v\"></i></Button>" +
                                 "<div class=\"form-control bd\">" +
                                     task_progress.Name +
                                  "</div>" +
@@ -86,32 +101,31 @@ namespace ToDoList.GUI
             foreach (Entity.Task task_done in taskDone)
                 done.InnerHtml = done.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<a name='editDone' runat='server' value=" + task_done.ID + " type='submit'>" +
-                            "<li class=\"card\">" +
+                          "<li class=\"card\">" +
                                 "<div class=\"card-body input-group\">" +
                                 
                                     "<div class=\"input-group-append\">" +
-                                        "<button name='btnDone' runat='server' value=" + task_done.ID + " class=\"btn btn-change-status-done\" type=\"submit\"><i class=\"fa fa-arrow-left\"></i></button>" +
+                                        "<button name='btnDone' runat='server' id='btn_edit_done' value=" + task_done.ID + " class=\"btn btn-change-status-done\" type=\"submit\"><i class=\"fa fa-arrow-left\"></i></button>" +
                                     "</div>" +
                                     "<div class=\"form-control bd\">" +
                                         task_done.Name +
                                     "</div>" +
-                                    "<Button class='btn edit-task '><i class=\"fas fa-ellipsis-v\"></i></Button>" +
+                                    "<Button name='editDone' runat='server' id='btn_edit_done' value=" + task_done.ID + " class='btn edit-task '><i class=\"fas fa-ellipsis-v\"></i></Button>" +
                                 "</div>" +
                             "</li>" +
-                        "</a>" +
                     "</ul>";
 
 
             foreach (Entity.Task task_late in taskLate)
                 late.InnerHtml = late.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<a name='editLate' runat='server' value=" + task_late.ID + " type='submit'>" +
+                        "<a name='editLate' id='btn_edit_late' runat='server' value=" + task_late.ID + " type='submit'>" +
                             "<li class=\"card\">" +
                                 "<div class=\"card-body p-1\">" +
                                     "<div class=\"card-title m-0\">" +
                                         task_late.Name +
                                     "</div>" +
+                                     "<Button name='editLate' runat='server' id='btn_edit_late' value=" + task_late.ID + " class='btn edit-task '><i class=\"fas fa-ellipsis-v\"></i></Button>" +
                                 "</div>" +
                             "</li>" +
                         "</a>" +
@@ -219,11 +233,11 @@ namespace ToDoList.GUI
                 }
                 TaskBLL.AddTask(task);
                 Page_Load(sender, e);
-            }
-            else if(btnsave.InnerText == "EDIT")
+            }//if(btnsave.InnerText == "EDIT")
+            else 
             {
-                string id = Request.Form["editInprogress"];
-                Task t = TaskBLL.GetTask(id);
+                int id = Convert.ToInt32(id_task.Value);
+               Task t = TaskBLL.GetTask(id);
                 if (FileUpload1.HasFile)
                 {
                     string fileName = FileUpload1.FileName;
@@ -233,13 +247,14 @@ namespace ToDoList.GUI
                     {
 
                         Name = inputName.Value,
-                        OwnerId = t.OwnerId,
+                        OwnerId = TaskBLL.GetTask(id).OwnerId,
                         StartDay = Convert.ToDateTime(start_date.Value),
                         Deadline = Convert.ToDateTime(deadline.Value),
                         Description = inputDescription.Value,
                         Attachment = FileUpload1.FileName,
                         Visability = Visability.Value,
-                        Status = t.Status,
+                        Status = TaskBLL.GetTask(id).Status,
+                        ID = id,
                     };
 
                     TaskBLL.EditTask(task);
@@ -249,15 +264,15 @@ namespace ToDoList.GUI
                 {
                     Task task = new Task()
                     {
-
                         Name = inputName.Value,
-                        OwnerId = t.OwnerId,
+                        OwnerId = TaskBLL.GetTask(id).OwnerId,
                         StartDay = Convert.ToDateTime(start_date.Value),
                         Deadline = Convert.ToDateTime(deadline.Value),
                         Description = inputDescription.Value,
                         Attachment = FileUpload1.FileName,
                         Visability = Visability.Value,
-                        Status = t.Status,
+                        Status = TaskBLL.GetTask(id).Status,
+                        ID=t.ID,
                     };
 
                     TaskBLL.EditTask(task);

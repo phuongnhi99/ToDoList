@@ -17,7 +17,7 @@ namespace ToDoList.BLL
         }
 
 
-        public static Task GetTask(string TaskId)
+        public static Task GetTask(int TaskId)
         {
             return obj.GetTask(TaskId);
         }
