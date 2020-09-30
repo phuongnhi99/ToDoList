@@ -13,8 +13,8 @@ namespace ToDoList.GUI
 {
     public partial class WebForm1 : System.Web.UI.Page
     { 
-        public List<Task> DataSource { get; set; }
-        
+        public List<Task> DataSourceTask { get; set; }
+        public List<Comment> DataSourceCmt { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack)
@@ -74,13 +74,29 @@ namespace ToDoList.GUI
             progress.InnerHtml = "";
             done.InnerHtml = "";
             late.InnerHtml = "";
+            cmtbox.InnerHtml = "";
             List<Entity.Task> taskProgress = TaskBLL.GetTaskProgress();
             List<Entity.Task> taskDone = TaskBLL.GetTaskDone();
             List<Entity.Task> taskLate = TaskBLL.GetTaskLate();
-            DataSource = taskProgress.ToList();
-            DataSource = taskDone.ToList();
-            DataSource = taskLate.ToList();
+            List<Entity.Comment> cmt = CommentBLL.GetAll();
+            DataSourceTask = taskProgress.ToList();
+            DataSourceTask = taskDone.ToList();
+            DataSourceTask = taskLate.ToList();
+            DataSourceCmt = cmt.ToList();
             DataBind();
+
+
+            foreach (Entity.Comment comment in cmt)
+                cmtbox.InnerHtml = cmtbox.InnerHtml +
+                "<li>" +
+                    "<div class=\"commenterImage\">" +
+                        "<img src = \"https://image.freepik.com/free-vector/enthusiastic-concept-illustration_114360-3478.jpg\" />" +
+                    "</div>" +
+                    "<div class=\"commentText\">" +
+                        "<p>" + comment.Description +"</p>" +
+                        "<span class=\"date sub-text\">" + comment.Name + "</span>" +
+                    "</div>" +
+                "</li>";
             foreach (Entity.Task task_progress in taskProgress)
                 progress.InnerHtml = progress.InnerHtml +
 
@@ -136,12 +152,15 @@ namespace ToDoList.GUI
             progress.InnerHtml = "";
             done.InnerHtml = "";
             late.InnerHtml = "";
+            cmtbox.InnerHtml = "";
             List<Entity.Task> taskProgress = TaskBLL.GetTaskProgress();
             List<Entity.Task> taskDone = TaskBLL.GetTaskDone();
             List<Entity.Task> taskLate = TaskBLL.GetTaskLate();
-            DataSource = taskProgress.ToList();
-            DataSource = taskDone.ToList();
-            DataSource = taskLate.ToList();
+            DataSourceTask = taskProgress.ToList();
+            DataSourceTask = taskDone.ToList();
+            DataSourceTask = taskLate.ToList();
+            List<Entity.Comment> cmt = CommentBLL.GetAll();
+            DataSourceCmt = cmt.ToList();
             DataBind();
             foreach (Entity.Task task_progress in taskProgress)
                 progress.InnerHtml = progress.InnerHtml +

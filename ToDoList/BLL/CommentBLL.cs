@@ -10,6 +10,12 @@ namespace ToDoList.BLL
     public static class CommentBLL
     {
         private static CommentDAL obj = new CommentDAL();
+
+        public static List<Entity.Comment> GetAll()
+        {
+            return obj.GetAll();
+        }
+
         public static void AddComment(Comment comment)
         {
             obj.AddComment(comment);

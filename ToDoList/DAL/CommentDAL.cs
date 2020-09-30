@@ -9,6 +9,30 @@ namespace ToDoList.DAL
 {
     public class CommentDAL
     {
+        public List<Entity.Comment> GetAll()
+        {
+            List<Entity.Comment> data = new List<Entity.Comment>();
+            string query = "select * from comment inner join employee on comment.IdEmployee = employee.ID";
+            SQLHelper.DbConnection();
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Entity.Comment cmt = new Entity.Comment();
+                    Entity.Employee emp = new Entity.Employee();
+                    cmt.ID = Convert.ToInt32(reader["ID"].ToString());
+                    cmt.IdTask = Convert.ToInt32(reader["IdTask"].ToString());
+                    cmt.IdEmployee = Convert.ToInt32(reader["IdEmployee"].ToString());
+                    cmt.Description = reader["Description"].ToString();
+                    cmt.Name = reader["Name"].ToString();
+                    data.Add(cmt);
+                }
+                reader.NextResult();
+            }
+            return data;
+        }
         public void AddComment(Comment comment)
         {
             SQLHelper.DbConnection();
