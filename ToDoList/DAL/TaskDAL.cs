@@ -150,7 +150,7 @@ namespace ToDoList.DAL
                 task.Description = reader["Description"].ToString();
                 task.Status = reader["Status"].ToString();
                 task.Visability = reader["Visability"].ToString();
-                //task.Attachment = reader["Attachment"].ToString();
+                task.Attachment = reader["Attachment"].ToString();
                 //task.Comment = reader["Comment"].ToString();
                 //task.Partner = reader["Partner"].ToString();
             }
@@ -160,8 +160,8 @@ namespace ToDoList.DAL
         public void AddTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
-            string sql = "INSERT INTO TASK ( Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment, Comment, Partner) " +
-                "VALUES ( @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment, @Comment, @Partner)";
+            string sql = "INSERT INTO TASK ( Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment) " +
+                "VALUES ( @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment)";
             SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@Name", task.Name);
             cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
@@ -171,8 +171,6 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@Status", task.Status);
             cmd.Parameters.AddWithValue("@Visability", task.Visability);
             cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
-            cmd.Parameters.AddWithValue("@Comment", task.Comment);
-            cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.ExecuteNonQuery();
         }
 

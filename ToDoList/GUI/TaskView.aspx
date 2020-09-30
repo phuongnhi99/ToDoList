@@ -11,12 +11,12 @@
             <div class="row">
                 <div class="col card inprogress ">
                     <div class="card-header">
-                        <h5 class="card-title">IN PROGRESS</h5>
+                        <h5 id="test" runat="server" class="card-title">IN PROGRESS</h5>
                     </div>
                     <div id="progress" runat="server" class="card-body">                        
                     </div>
                     <div class="card-footer">
-                        <button class="btn add-btn"><i class="fa fa-plus"></i>ADD NEW TASK</button>
+                        <button runat="server" id="newtask" onserverclick="newtask_ServerClick" class="btn add-btn"><i class="fa fa-plus"></i>ADD NEW TASK</button>
                     </div>
                 </div>
 
@@ -58,66 +58,65 @@
                             <div class="col">
                                 <div class="form-row ">
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4">Name</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <label for="inputName">Name</label>
+                                        <input type="text" runat="server" class="form-control" id="inputName" placeholder="Name task">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="inputEmail4">Description</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        <label for="inputDescription">Description</label>
+                                        <input type="text" runat="server" class="form-control" id="inputDescription" placeholder="Description">
                                     </div>
                                 </div>
                                 <div class="form-group row">
 
                                     <div class="col-6">
-                                        <label for="example-date-input" class="col-6 col-form-label">Start Day</label>
-                                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                        <label for="start_date" class="col-6 col-form-label">Start Day</label>
+                                       <input class="form-control" runat="server" type="date" value="2011-08-19" id="start_date">
                                     </div>
                                     <div class="col-6">
-                                        <label for="example-date-input" class="col-6 col-form-label">Deadline</label>
-                                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                        <label for="deadline" class="col-6 col-form-label">Deadline</label>
+                                        <input class="form-control" runat="server" type="date" value="2011-08-19" id="deadline">
                                     </div>
                                 </div>
 
                                 <div class="form-row ">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <select class="selectpicker form-control" multiple>
-                                                <option>Mustard</option>
-                                                <option>Ketchup</option>
-                                                <option>Relish</option>
-                                            </select>
-                                        </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputCity">Partner</label>
+                                        <select id="inputState" class="form-control" multiple>
+                                            <option selected>Choose...</option>
+                                            <option>...</option>
+                                        </select>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <select class="selectpicker form-control">
-                                                <option>Mustard</option>
-                                                <option>Ketchup</option>
-                                                <option>Relish</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputState">Status</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>...</option>
+                                        </select>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <select class="selectpicker form-control">
-                                                <option>Mustard</option>
-                                                <option>Ketchup</option>
-                                                <option>Relish</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputZip">Visability</label>
+                                        <select id="inputState" class="form-control">
+                                            <option selected>Choose...</option>
+                                            <option>...</option>
+                                        </select>
                                     </div>
 
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label for="exampleInputFile">File input</label>
-                                    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                    <div class="form-group">
+                                    <label for="fileHelp">File input</label>
+                                     <asp:FileUpload ID="FileUpload1" runat="server" Width="348px" Height="27px" />
+
+                                    </div>
                                     <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
                                 </div>
-                                        <button type="submit" class="btn btn-primary">edit</button>
-                                        <button type="submit" class="btn btn-primary">back</button>
-                                    </div>
+                                <button type="submit" id="btnsave" runat="server" onserverclick="Unnamed_ServerClick" class="btn btn-primary">edit</button>
+                                <button type="submit" class="btn btn-primary">back</button>
+                            </div>
 
 
 

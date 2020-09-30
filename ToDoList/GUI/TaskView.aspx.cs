@@ -19,19 +19,34 @@ namespace ToDoList.GUI
         {
             if (Page.IsPostBack)
             {
-                if (Request.Form["btn1"] != null)
+                if (Request.Form["btnInprogress"] != null)
                 {
-                    string btn1 = Request.Form["btn1"];
-                    TaskBLL.ChangeStatusToDone(btn1);
+                    string btnInprogress = Request.Form["btnInprogress"];
+                    TaskBLL.ChangeStatusToDone(btnInprogress);
                     Page_Load1(sender, e);
                 }
-            }
-            if (Page.IsPostBack)
-            {
-                if (Request.Form["btn2"] != null)
+                if (Request.Form["btnDone"] != null)
                 {
-                    string btn2 = Request.Form["btn2"];
-                    TaskBLL.ChangeStatusToInprogress(btn2);
+                    string btnDone = Request.Form["btnDone"];
+                    TaskBLL.ChangeStatusToInprogress(btnDone);
+                    Page_Load1(sender, e);
+                }
+                if (Request.Form["editInprogress"] != null)
+                {
+                    string editInprogress = Request.Form["editInprogress"];
+
+                    Page_Load1(sender, e);
+                }
+                if (Request.Form["editDone"] != null)
+                {
+                    string editDone = Request.Form["editDone"];
+
+                    Page_Load1(sender, e);
+                }
+                if (Request.Form["editLate"] != null)
+                {
+                    string editLate = Request.Form["editLate"];
+
                     Page_Load1(sender, e);
                 }
             }
@@ -48,44 +63,50 @@ namespace ToDoList.GUI
             foreach (Entity.Task task_progress in taskProgress)
                 progress.InnerHtml = progress.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<li onclick='document.getElementById('jj').submit();' class=\"card\">" +
-                            "<div class=\"card-body input-group\">" +
-                             "<div class=\"form-control bd\">" +
-                                task_progress.Name +
-                             "</div>" +
-                                "<div class=\"input-group-append\">" +
-                                    "<button name='btn1' runat='server' value=" + task_progress.ID +" class=\"btn btn-change-status-inprogress\" type=\"submit\"><i class=\"fa fa-arrow-right\"></i></button>" +
+                        "<a name='editInprogress' runat='server' value=" + task_progress.ID + " type='submit'>" +
+                            "<li class=\"card\" >" +
+                                "<div class=\"card-body input-group\">" +
+                                 "<div class=\"form-control bd\">" +
+                                    task_progress.Name +
+                                 "</div>" +
+                                    "<div class=\"input-group-append\">" +
+                                        "<button name='btnInprogress' runat='server' value=" + task_progress.ID +" class=\"btn btn-change-status-inprogress\" type=\"submit\"><i class=\"fa fa-arrow-right\"></i></button>" +
+                                    "</div>" +
                                 "</div>" +
-                            "</div>" +
-                        "</li>" +
+                            "</li>" +
+                        "</a>" +
                     "</ul>";
 
             foreach (Entity.Task task_done in taskDone)
                 done.InnerHtml = done.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<li class=\"card\">" +
-                            "<div class=\"card-body input-group\">" +
-                                "<div class=\"input-group-append\">" +
-                                    "<button name='btn2' runat='server' value=" + task_done.ID + " class=\"btn btn-change-status-done\" type=\"submit\"><i class=\"fa fa-arrow-left\"></i></button>" +
+                        "<a name='editDone' runat='server' value=" + task_done.ID + " type='submit'>" +
+                            "<li class=\"card\">" +
+                                "<div class=\"card-body input-group\">" +
+                                    "<div class=\"input-group-append\">" +
+                                        "<button name='btnDone' runat='server' value=" + task_done.ID + " class=\"btn btn-change-status-done\" type=\"submit\"><i class=\"fa fa-arrow-left\"></i></button>" +
+                                    "</div>" +
+                                    "<div class=\"form-control bd\">" +
+                                        task_done.Name +
+                                    "</div>" +
                                 "</div>" +
-                                "<div class=\"form-control bd\">" +
-                                    task_done.Name +
-                                "</div>" +
-                            "</div>" +
-                        "</li>" +
+                            "</li>" +
+                        "</a>" +
                     "</ul>";
 
 
             foreach (Entity.Task task_late in taskLate)
                 late.InnerHtml = late.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<li class=\"card\">" +
-                            "<div class=\"card-body p-1\">" +
-                                "<div class=\"card-title m-0\">" +
-                                    task_late.Name +
+                        "<a name='editLate' runat='server' value=" + task_late.ID + " type='submit'>" +
+                            "<li class=\"card\">" +
+                                "<div class=\"card-body p-1\">" +
+                                    "<div class=\"card-title m-0\">" +
+                                        task_late.Name +
+                                    "</div>" +
                                 "</div>" +
-                            "</div>" +
-                        "</li>" +
+                            "</li>" +
+                        "</a>" +
                     "</ul>";
         }
         protected void Page_Load1(object sender, EventArgs e)
@@ -142,6 +163,8 @@ namespace ToDoList.GUI
                             "</div>" +
                         "</li>" +
                     "</ul>";
+
+            edit_cover.Visible = false;
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
@@ -152,5 +175,79 @@ namespace ToDoList.GUI
             if(edit_cover.Visible == true)
             edit_cover.Visible = false;
         }
+
+
+        protected void newtask_ServerClick(object sender, EventArgs e)
+        {
+            edit_cover.Visible = true;
+            btnsave.InnerText = "ADD";
+        }
+
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            if (btnsave.InnerText == "ADD")
+            {
+               string a= (string)Session.Contents["Email"];
+                Entity.Employee idemp = EmployeeBLL.GetIDbyEmail(a);
+                Task task = new Task()
+                {
+
+                    Name = inputName.Value,
+                    OwnerId = idemp.ID,
+                    StartDay = Convert.ToDateTime(start_date.Value),
+                    Deadline = Convert.ToDateTime(deadline.Value),
+                    Description = inputDescription.Value,
+                    Attachment = FileUpload1.FileName,
+                    Visability = Visability.Value,
+                    Status = Status.Value,
+                    Partner = Partner.Value,
+                    Comment = "",
+                };
+                if (FileUpload1.HasFile)
+                {
+                    string fileName = FileUpload1.FileName;
+                    string filePath = Server.MapPath(@"File\" + fileName);
+                    FileUpload1.SaveAs(filePath);
+                }
+                TaskBLL.AddTask(task);
+                Page_Load(sender, e);
+            }
+            else if(btnsave.InnerText == "EDIT")
+            {
+                string id = "";
+                Task t = TaskBLL.GetTask(id);
+                Task task = new Task()
+                {
+
+                    Name = inputName.Value,
+                    OwnerId = t.OwnerId,
+                    StartDay = Convert.ToDateTime(start_date.Value),
+                    Deadline = Convert.ToDateTime(deadline.Value),
+                    Description = inputDescription.Value,
+                    Attachment = FileUpload1.FileName,
+                    Visability = Visability.Value,
+                    Status = Status.Value,
+                    Partner = Partner.Value,
+                    Comment = "",
+                };
+                if (FileUpload1.HasFile)
+                {
+                    string fileName = FileUpload1.FileName;
+                    string filePath = Server.MapPath(@"File\" + fileName);
+                    FileUpload1.SaveAs(filePath);
+                }
+                TaskBLL.EditTask(task);
+                Page_Load(sender, e);
+            }
+
+        }
+
+        //protected void hello(object sender, EventArgs e)
+        //{
+        //    html.InnerHtml = "byebye";
+        //    //HtmlButton button = (HtmlButton)sender;
+        //    //TaskBLL.ChangeStatusToDone(button.ID);
+        //}
+
     }
 }
