@@ -34,7 +34,13 @@ namespace ToDoList.GUI
                 if (Request.Form["editInprogress"] != null)
                 {
                     string editInprogress = Request.Form["editInprogress"];
-
+                    Task task = TaskBLL.GetTask(editInprogress);
+                    inputName.Value = task.Name;
+                    start_date.Value = Convert.ToString(task.StartDay);
+                    deadline.Value = Convert.ToString(task.Deadline);
+                    inputDescription.Value = task.Description;
+                    edit_cover.Visible = true;
+                    btnsave.InnerText = "Edit";
                     Page_Load1(sender, e);
                 }
                 if (Request.Form["editDone"] != null)
@@ -62,11 +68,11 @@ namespace ToDoList.GUI
             DataBind();
             foreach (Entity.Task task_progress in taskProgress)
                 progress.InnerHtml = progress.InnerHtml +
+
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<a name='editInprogress' runat='server' value=" + task_progress.ID + " type='submit'>" +
-                            "<li class=\"card\" >" +
+                        "<li class=\"card\" >" +
                                 "<div class=\"card-body input-group\">" +
-                                 "<div class=\"form-control bd\">" +
+                                "<div class=\"form-control bd\">" +
                                     task_progress.Name +
                                  "</div>" +
                                     "<div class=\"input-group-append\">" +
@@ -74,7 +80,6 @@ namespace ToDoList.GUI
                                     "</div>" +
                                 "</div>" +
                             "</li>" +
-                        "</a>" +
                     "</ul>";
 
             foreach (Entity.Task task_done in taskDone)
@@ -183,13 +188,6 @@ namespace ToDoList.GUI
             edit_cover.Visible = true;
             btnsave.InnerText = "ADD";
 
-            string id = "";
-            Task task = TaskBLL.GetTask(id);
-            inputName.Value = task.Name;
-            start_date.Value = Convert.ToString(task.StartDay);
-            deadline.Value = Convert.ToString(task.Deadline);
-            inputDescription.Value = task.Description;
-
         }
 
         protected void Unnamed_ServerClick(object sender, EventArgs e)
@@ -221,7 +219,7 @@ namespace ToDoList.GUI
             }
             else if(btnsave.InnerText == "EDIT")
             {
-                string id = "";
+                string id = Request.Form["editInprogress"];
                 Task t = TaskBLL.GetTask(id);
                 if (FileUpload1.HasFile)
                 {
@@ -266,10 +264,23 @@ namespace ToDoList.GUI
             }
 
         }
-
         protected void backtask_ServerClick(object sender, EventArgs e)
         {
             edit_cover.Visible = false;
+            Page_Load(sender, e);
+        }
+
+        protected void addcomment_ServerClick(object sender, EventArgs e)
+        {
+            string a = (string)Session.Contents["Email"];
+            Entity.Employee idemp = EmployeeBLL.GetIDbyEmail(a);
+            Comment comment = new Comment()
+            {
+                IdTask=1,
+                IdEmployee=idemp.ID,
+                Description=valuedescription.Value,
+            };
+            CommentBLL.AddComment(comment);
             Page_Load(sender, e);
         }
 
