@@ -48,7 +48,7 @@ namespace ToDoList.GUI
             foreach (Entity.Task task_progress in taskProgress)
                 progress.InnerHtml = progress.InnerHtml +
                     "<ul class=\"list-group list-group-flush\">" +
-                        "<li class=\"card\">" +
+                        "<li onclick='document.getElementById('jj').submit();' class=\"card\">" +
                             "<div class=\"card-body input-group\">" +
                              "<div class=\"form-control bd\">" +
                                 task_progress.Name +

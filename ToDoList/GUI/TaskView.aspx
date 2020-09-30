@@ -47,7 +47,7 @@
 
     <div id="edit_cover" runat="server">
         <div class="edit-cover">
-            <form>
+            <form id="jj">
                 <div class="edit-content card" runat="server">
                     <div class="card-header">
                         <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
@@ -79,46 +79,53 @@
                                 </div>
 
                                 <div class="form-row ">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select class="selectpicker form-control" multiple>
+                                                <option>Mustard</option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select class="selectpicker form-control">
+                                                <option>Mustard</option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <select class="selectpicker form-control">
+                                                <option>Mustard</option>
+                                                <option>Ketchup</option>
+                                                <option>Relish</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCity">Partner</label>
-                                        <select id="inputState" class="form-control" multiple>
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputState">Status</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputZip">Visability</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
-                                    </div>
-                                </div>
+
+
                                 <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
                                     <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
                                 </div>
-                                <button type="submit" class="btn btn-primary">edit</button>
-                                <button type="submit" class="btn btn-primary">back</button>
-                            </div>
+                                        <button type="submit" class="btn btn-primary">edit</button>
+                                        <button type="submit" class="btn btn-primary">back</button>
+                                    </div>
 
 
 
 
 
-                            <div class="col">
-                                <div class="detailBox">
-                                    <div class="titleBox">
+                                    <div class="col">
+                                        <div class="detailBox">
+                                            <div class="titleBox">
                                         <label>Comment Box</label>
                                         <button type="button" class="close" aria-hidden="true">&times;</button>
                                     </div>
@@ -160,11 +167,16 @@
                                             </li>
                                         </ul>
                                         <form class="form-group" role="form">
-                                            <div class="input-group mb-3">
+                                            <div class="input-group mb-6">
                                                 <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                
-                                                    <button class="btn btn-outline-secondary" type="button">Button</button>
-                                                
+
+                                                <div class="input-group-append">
+                                                   
+                                                    <button class="btn sent btn-dark" type="button">Button</button>
+
+                                                </div>
+
+
                                             </div>
                                         </form>
                                     </div>
@@ -175,7 +187,7 @@
                         </div>
                     </div>
 
-                    <div class="card-footer">hello</div>
+<%--                    <div class="card-footer">hello</div>--%>
                 </div>
             </form>
 
