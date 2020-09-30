@@ -114,13 +114,13 @@ namespace ToDoList.GUI
         protected global::System.Web.UI.HtmlControls.HtmlSelect Partner;
 
         /// <summary>
-        /// File control.
+        /// Status control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText File;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Status;
 
         /// <summary>
         /// Visability control.

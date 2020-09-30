@@ -81,26 +81,35 @@
                                 <div class="form-row ">
                                 </div>
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
+                                    <div class="col-md-4">
+                                        <div class="form-group ">
                                         <label for="Partner">Partner</label>
-                                        <select runat="server" id="Partner" class="form-control" multiple>
-                                            <option selected>Choose...</option>
-                                            <option>Chưa hoàn thành</option>
-                                            <option>Hoàn thành</option>
+                                        <select runat="server" id="Partner" class="selectpicker form-control" multiple>
+                                            <option selected>...</option>
+                                            <option>...</option>
+                                            <option>...</option>
                                         </select>
+                                        </div>
                                     </div>
+
                                     <div class="form-group col-md-4">
-                                        <label for="File">File</label>
-                                        <input type="text" runat="server" class="form-control" id="File" placeholder="">
-                                    
+                                         <div class="form-group ">
+                                        <label for="Status">Status</label>
+                                        <select runat="server" id="Status" class="selectpicker form-control">
+                                            <option>In Progress</option>
+                                            <option>Done</option>
+                                        </select>
+                                        </div>
                                     </div>
+
                                     <div class="form-group col-md-4">
+                                         <div class="form-group ">
                                         <label for="Visability">Visability</label>
-                                        <select runat="server" id="Visability" class="form-control">
-                                            <option selected>Choose...</option>
+                                        <select runat="server" id="Visability" class="selectpicker form-control">
                                             <option>Public</option>
                                             <option>Private</option>
                                         </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -162,12 +171,15 @@
                                             </li>
                                         </ul>
                                         <form class="form-group" role="form">
-                                            <div class="input-group mb-3">
+                                                
+                                                <div class="input-group mb-6">
                                                 <input type="text" id="valuedescription" runat="server" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                
-                                                    <button id="addcomment" runat="server" onserverclick="addcomment_ServerClick" class="btn btn-outline-secondary" type="button">Button</button>
-                                                
+
+                                                <div class="input-group-append">
+                                                   
+                                                    <button id="addcomment" runat="server"  class="btn sent btn-dark" type="button">Button</button>
                                             </div>
+                                                    </div>
                                         </form>
                                     </div>
                                 </div>
@@ -177,7 +189,7 @@
                         </div>
                     </div>
 
-                    <div class="card-footer">hello</div>
+                  <%--  <div class="card-footer">hello</div>--%>
                 </div>
             </form>
 
