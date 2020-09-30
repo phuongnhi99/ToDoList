@@ -65,11 +65,14 @@
                     <div class="card-header">
                         <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
                         <h4>TASK</h4>
+                        <input runat="server" id="id_task" style="visibility:hidden">
                     </div>
                     <div class="card-body" style="overflow: auto">
                         <div class="row">
                             <div class="col">
                                 <div class="form-row ">
+                                    
+         
                                     <div class="form-group col-md-6">
                                         <label for="inputName">Name</label>
                                         <input type="text" runat="server" class="form-control" id="inputName" placeholder="Name task">

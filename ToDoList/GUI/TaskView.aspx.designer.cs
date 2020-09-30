@@ -69,6 +69,15 @@ namespace ToDoList.GUI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl edit_cover;
 
         /// <summary>
+        /// id_task control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText id_task;
+
+        /// <summary>
         /// inputName control.
         /// </summary>
         /// <remarks>
