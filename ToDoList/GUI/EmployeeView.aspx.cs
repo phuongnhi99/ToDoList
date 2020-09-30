@@ -54,17 +54,17 @@ namespace ToDoList
 
         protected void close_edit_ServerClick(object sender, EventArgs e)
         {
-            if (form_edit.Visible == false)
+            if (form_edit.Visible == true)
             {
-                form_edit.Visible = true;
+                form_edit.Visible = false;
             }
         }
 
         protected void btn_close_detail_ServerClick(object sender, EventArgs e)
         {
-            if (detail.Visible == false)
+            if (detail.Visible == true)
             {
-                detail.Visible = true;
+                detail.Visible = false;
             }
         }
     }

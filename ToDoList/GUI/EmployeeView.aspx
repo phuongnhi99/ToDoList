@@ -189,6 +189,4 @@
     </div>
 </div>
     <%-----------Detail-----------%>
-    
- <!-- Central Modal Medium Success-->
     </asp:Content>
