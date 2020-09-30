@@ -45,7 +45,7 @@
     </div>
 
 
-    <div id="edit_cover" runat="server">
+    <div id="edit_cover" runat="server" visible="false">
         <div class="edit-cover">
             <form>
                 <div class="edit-content card" runat="server">
@@ -85,21 +85,21 @@
                                         <label for="Partner">Partner</label>
                                         <select runat="server" id="Partner" class="form-control" multiple>
                                             <option selected>Choose...</option>
-                                            <option>...</option>
+                                            <option>Chưa hoàn thành</option>
+                                            <option>Hoàn thành</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="Status">Status</label>
-                                        <select runat="server" id="Status" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                        <label for="File">File</label>
+                                        <input type="text" runat="server" class="form-control" id="File" placeholder="">
+                                    
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="Visability">Visability</label>
                                         <select runat="server" id="Visability" class="form-control">
                                             <option selected>Choose...</option>
-                                            <option>...</option>
+                                            <option>Public</option>
+                                            <option>Private</option>
                                         </select>
                                     </div>
                                 </div>
@@ -109,10 +109,9 @@
                                      <asp:FileUpload ID="FileUpload1" runat="server" Width="348px" Height="27px" />
 
                                     </div>
-                                    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                                </div>
+                                 </div>
                                 <button type="submit" id="btnsave" runat="server" onserverclick="Unnamed_ServerClick" class="btn btn-primary">edit</button>
-                                <button type="submit" class="btn btn-primary">back</button>
+                                <button type="submit" id="backtask" runat="server" onserverclick="backtask_ServerClick" class="btn btn-primary">back</button>
                             </div>
 
 
@@ -164,9 +163,9 @@
                                         </ul>
                                         <form class="form-group" role="form">
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <input type="text" id="valuedescription" runat="server" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                                 
-                                                    <button class="btn btn-outline-secondary" type="button">Button</button>
+                                                    <button id="addcomment" runat="server" onserverclick="addcomment_ServerClick" class="btn btn-outline-secondary" type="button">Button</button>
                                                 
                                             </div>
                                         </form>

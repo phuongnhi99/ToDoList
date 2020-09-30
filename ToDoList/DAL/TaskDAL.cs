@@ -189,8 +189,6 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@Status", task.Status);
             cmd.Parameters.AddWithValue("@Visability", task.Visability);
             cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
-            cmd.Parameters.AddWithValue("@Comment", task.Comment);
-            cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
