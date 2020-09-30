@@ -134,24 +134,30 @@ namespace ToDoList.DAL
         public void updateEmp(Entity.Employee employee)
         {
             SQLHelper.DbConnection();
-            string query = "update EMPLOYEE set Email =@Email, Password= @Password, Name =@Name, DateOfBirth = @DateOfBirth, PhoneNumber =@PhoneNumber, Position =@Position, Level= @Level where ID = @ID";
+            string query = "update EMPLOYEE set Email =@Email, Name =@Name, DateOfBirth = @DateOfBirth, PhoneNumber =@PhoneNumber, Position =@Position where ID = @ID";
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             cmd.Parameters.AddWithValue("Email", employee.Email);
-            cmd.Parameters.AddWithValue("Password", employee.PassWord);
             cmd.Parameters.AddWithValue("Name", employee.Name);
             cmd.Parameters.AddWithValue("DateOfBirth", employee.DateOfBirth);
             cmd.Parameters.AddWithValue("PhoneNumber", employee.PhoneNumber);
             cmd.Parameters.AddWithValue("Position", employee.Position);
-            cmd.Parameters.AddWithValue("Level", employee.Level);
             cmd.Parameters.AddWithValue("ID", employee.ID);
             cmd.ExecuteNonQuery();
         }
-        public void Delete(Entity.Employee employee)
+        public void updatePass(Entity.Employee employee)
+        {
+            SQLHelper.DbConnection();
+            string query = "update EMPLOYEE set Password =@Password where ID = @ID";
+            SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
+            cmd.Parameters.AddWithValue("Password", employee.PassWord);
+            cmd.ExecuteNonQuery();
+        }
+        public void Delete(string ID)
         {
             SQLHelper.DbConnection();
             string query = "delete from EMPLOYEE where ID = @ID";
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-            cmd.Parameters.AddWithValue("@ID",employee.ID);
+            cmd.Parameters.AddWithValue("@ID",ID);
             cmd.ExecuteNonQuery();
         }
         public int checklogin(string Email, string Password)

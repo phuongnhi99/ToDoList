@@ -55,44 +55,51 @@
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
-                    <input type="text" class="form-control" id="username" placeholder="Full name">
+                    <input runat="server" type="text" class="form-control" id="username" placeholder="Full name">
                     <label class="valid-feedback"></label>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    <input runat="server" type="email" class="form-control" id="inputEmail4" placeholder="Email">
                     <label class="valid-feedback"></label>
                 </div>
             </div>
             <div class="form row">
                 <div class="form-group col-md-6">
                     <label for="password">Password</label>
-                    <input class="form-control" type="password" id="password">
+                    <input runat="server" class="form-control" type="password" id="password">
                     <label class="valid-feedback"></label>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="example-date-input">Confirm Password</label>
-                    <input class="form-control" type="password" id="confirm_password">
-                    <label class="valid-feedback"></label>
+                    <input runat="server" class="form-control" type="password" id="confirm_password">
+                    <label runat="server" class="valid-feedback" id="confirm_error"></label>
                 </div>
             </div>
             <div class="form-group row">
-                <div class="col-4">
+                <div class="col-3">
                     <label for="phonenumber" class="col-form-label">Phone Number</label>
-                    <input class="form-control" type="text" id="phone_number">
+                    <input runat="server" class="form-control" type="text" id="phone_number">
                     <label class="valid-feedback"></label>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <label for="example-date-input" class="col-form-label">Birthday</label>
-                    <input class="form-control" type="date" id="birthday">
+                    <input runat="server" class="form-control" type="date" id="birthday">
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                     <label for="position" class="col-form-label">Position</label>
-                    <input class="form-control" type="text" id="position">
+                    <input runat="server" class="form-control" type="text" id="position">
+                </div>
+                <div class="col-3">
+                    <label for="level" class="col-form-label">Level</label>
+                    <select runat="server" id="level" class="form-control">
+                        <option>lanhdao</option>
+                        <option>nhanvien</option>
+                    </select>
                 </div>
             </div>
                 <button type="reset" class="btn btn-light">Cancel</button>
-                <button type="submit" class="btn btn-black">Add</button>
+                <button runat="server" type="submit" class="btn btn-black" onserverclick="btn_Add_New">Add</button>
         </div>
             </div>
         </form>
@@ -108,37 +115,38 @@
                 <div class="card-header">
                 <button class="close" runat="server" id="close_edit" onserverclick="close_edit_ServerClick"><i class="fas fa-times"></i></button>
                 <h4>EDIT EMPLOYEE</h4>
+                <div id="ID_edit" runat="server" hidden="hidden"></div>
             </div>
             <div class="card-body" style="overflow:auto">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Name</label>
-                    <input type="text" class="form-control" id="username_edit">
+                    <input runat="server" type="text" class="form-control" id="username_edit">
                     <label class="valid-feedback"></label>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="email_edit">
+                    <input runat="server" type="email" class="form-control" id="email_edit">
                     <label class="valid-feedback"></label>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-4">
                     <label for="phonenumber" class="col-form-label">Phone Number</label>
-                    <input class="form-control" type="text" id="phone_number_edit">
+                    <input runat="server" class="form-control" type="text" id="phone_number_edit">
                     <label class="valid-feedback"></label>
                 </div>
                 <div class="col-4">
                     <label for="example-date-input" class="col-form-label">Birthday</label>
-                    <input class="form-control" type="date" id="birthday_edit">
+                    <input runat="server" class="form-control" type="date" id="birthday_edit">
                 </div>
                 <div class="col-4">
                     <label for="position" class="col-form-label">Position</label>
-                    <input class="form-control" type="text" id="position_edit">
+                    <input runat="server" class="form-control" type="text" id="position_edit">
                 </div>
             </div>
-                <button type="reset" class="btn btn-light">Cancel</button>
-                <button type="submit" class="btn btn-black">Change</button>
+                <button runat="server" type="reset" class="btn btn-light" >Cancel</button>
+                <button runat="server" type="submit" class="btn btn-black" onserverclick="btn_Change">Change</button>
         </div>
             </div>
         </form>
@@ -159,28 +167,28 @@
                     <div class="form-row ">
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Name</label>
-                            <input type="text" class="form-control" id="username_detail" disabled>
+                            <input runat="server" type="text" class="form-control" id="username_detail" disabled>
                             <label class="valid-feedback"></label>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="email_detail" disabled>
+                            <input runat="server" type="email" class="form-control" id="email_detail" disabled>
                             <label class="valid-feedback"></label>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
                             <label for="phonenumber" class="col-form-label">Phone Number</label>
-                            <input class="form-control" type="text" id="phone_number_detail" disabled>
+                            <input runat="server" class="form-control" type="text" id="phone_number_detail" disabled>
                             <label class="valid-feedback"></label>
                         </div>
                         <div class="col-4">
                             <label for="example-date-input" class="col-form-label">Birthday</label>
-                            <input class="form-control" type="date" id="birthday_detail" disabled>
+                            <input runat="server" class="form-control" type="date" id="birthday_detail" disabled>
                         </div>
                         <div class="col-4">
                             <label for="position" class="col-form-label">Position</label>
-                            <input class="form-control" type="text" id="position_detail" disabled>
+                            <input runat="server" class="form-control" type="text" id="position_detail" disabled>
                         </div>
                     </div>
                 </div>
