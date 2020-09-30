@@ -12,11 +12,11 @@ namespace ToDoList.DAL
         public void AddComment(Comment comment)
         {
             SQLHelper.DbConnection();
-            string query = "insert into Comment ( IdTask, IdEmployee, Description) value (@IdTask, @IdEmployee, @Description)";
+            string query = "insert into Comment ( IdTask, IdEmployee, Description) values (@IdTask, @IdEmployee, @Description)";
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-            cmd.Parameters.AddWithValue("IdTask", comment.IdTask);
-            cmd.Parameters.AddWithValue("IdEmployee", comment.IdEmployee);
-            cmd.Parameters.AddWithValue("Description", comment.Description);
+            cmd.Parameters.AddWithValue("@IdTask", comment.IdTask);
+            cmd.Parameters.AddWithValue("@IdEmployee", comment.IdEmployee);
+            cmd.Parameters.AddWithValue("@Description", comment.Description);
             cmd.ExecuteNonQuery();
         }
         public void Delete(Comment comment)
@@ -32,8 +32,8 @@ namespace ToDoList.DAL
             SQLHelper.DbConnection();
             string query = "update Comment set Description =@Description  where ID = @ID";
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-            cmd.Parameters.AddWithValue("Description", comment.Description);
-            cmd.Parameters.AddWithValue("ID", comment.ID);
+            cmd.Parameters.AddWithValue("@Description", comment.Description);
+            cmd.Parameters.AddWithValue("@ID", comment.ID);
             cmd.ExecuteNonQuery();
         }
     }
