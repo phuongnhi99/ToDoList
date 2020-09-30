@@ -1,0 +1,98 @@
+
+create table EMPLOYEE (
+ID int primary key identity(1,1),
+Email varchar(100),
+Password varchar(100),	
+Name nvarchar(100),
+DateOfBirth date,
+PhoneNumber varchar(10),
+Position nvarchar(100),
+level nvarchar(100))
+go
+
+create table TASK (
+ID int primary key identity(1,1),
+Name nvarchar(100),
+OwnerID int references EMPLOYEE(ID), 
+StartDay date,
+Deadline date,
+Description nvarchar(500),
+Status nvarchar(100),
+Visability nvarchar(10),
+Attachment nvarchar(MAX)
+)
+go
+
+create table Comment (
+ID int primary key identity(1,1),
+IdTask int references TASK(ID),
+IdEmployee int references EMPLOYEE(ID),
+Description nvarchar(500)
+)
+go
+
+create table PARTNER (
+IdTask int references TASK(ID),
+IdEmployee int references EMPLOYEE(ID)
+)
+go
+
+
+insert into EMPLOYEE ( Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (N'loveyou010199@gmail.com', '1234567890', N'Trương Lê Hạ Sơn','1999-06-06', '0359577413', N'Nhân viên IT','nhanvien')
+insert into EMPLOYEE ( Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (N'lyngocmyphuong@gmail.com', '1234567890', N'Lý Ngọc Mỹ Phương','1999-09-13', '0767120381', N'Nhân viên IT','lanhdao')
+insert into EMPLOYEE ( Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (N'dangthikimnhu@gmail.com', '1234567890', N'Đặng Thị Kim Như','1999-09-14', '0359577412', N'Nhân viên IT','nhanvien')
+insert into EMPLOYEE ( Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (N'maithiphuong@gmail.com', '1234567890', N'Mai Thị Phương','1999-10-10', '0983907437', N'Nhân viên IT','nhanvien')
+insert into EMPLOYEE ( Email, Password, Name, DateOfBirth, PhoneNumber, Position,  Level) values (N'nguyenthiphuongnhi@gmail.com', '1234567890', N'Nguyễn Thị Phương Nhi','1998-12-30', '0961619712', N'Nhân viên IT','nhanvien')
+go
+
+insert into TASK (	Name,	OwnerID,	StartDay,	Deadline,	Description,	Status,		Visability,		Attachment) values (N'Note 1', '1', '2020-09-22', '2020-10-22',N'Hoàn thành gấp',N'Hoàn thành','public',null)
+insert into TASK (	Name,	OwnerID,	StartDay,	Deadline,	Description,	Status,		Visability,		Attachment) values (N'Note 2', '1', '2020-09-23', '2020-10-22',N'Hơi gấp',N'Chưa hoàn thành','private',null)
+insert into TASK (	Name,	OwnerID,	StartDay,	Deadline,	Description,	Status,		Visability,		Attachment) values (N'Note 3', '2', '2020-09-24', '2020-10-22',N'Từ từ rồi làm',N'Trễ hạn','public',null)
+insert into TASK (	Name,	OwnerID,	StartDay,	Deadline,	Description,	Status,		Visability,		Attachment) values (N'Note 4', '1', '2020-09-25', '2020-10-22',N'Rảnh thì làm',N'Trễ hạn','private',null)
+insert into TASK (	Name,	OwnerID,	StartDay,	Deadline,	Description,	Status,		Visability,		Attachment) values (N'Note 5', '3', '2020-09-26', '2020-10-22',N'Không cần lắm',N'Hoàn thành','public',null)
+go
+
+
+--create table COMMENT (
+--ID varchar(6) primary key,
+--EmployeeID varchar(10),
+--TaskID varchar(10),
+--Time datetime,
+--Detail nvarchar(500))
+
+--go
+--create table ATTACHMENT (
+--ID varchar(6),
+--TaskID varchar(6) references TASK (ID),
+--EmployeeID varchar(6) references EMPLOYEE(ID),
+--FileName varchar(100)
+--)
+--go
+
+--create table MEMBER (
+--TaskID varchar(6) references TASK(ID),
+--EmployeeID varchar(6) references EMPLOYEE(ID),
+--CONSTRAINT ACCESS primary key (TaskID, EmployeeID)
+--)
+--go
+
+--insert into COMMENT (ID, EmployeeID, TaskID, Time, Detail) values ('CMT1', N'EM1', 'TA1', ,N'Làm lẹ lên')
+--insert into COMMENT (ID, EmployeeID, TaskID, Time, Detail) values ('CMT2', N'EM2', 'TA2', ,N'Từ từ làm')
+--insert into COMMENT (ID, EmployeeID, TaskID, Time, Detail) values ('CMT3', N'EM3', 'TA3', ,N'Làm không được thì nghỉ')
+--go
+--insert into ATTACHMENT (ID, TaskID, EmployeeID, FileName) values ('AT1', 'TA1', 'EM1', 'https://facebook.com')
+--insert into ATTACHMENT (ID, TaskID, EmployeeID, FileName) values ('AT2', 'TA2', 'EM2', 'https://facebook.com')
+--insert into ATTACHMENT (ID, TaskID, EmployeeID, FileName) values ('AT3', 'TA3', 'EM3', 'https://facebook.com')
+
+--go
+--insert into MEMBER (TaskID, EmployeeID) values ('TA1', 'EM1')
+--insert into MEMBER (TaskID, EmployeeID) values ('TA2', 'EM2')
+--insert into MEMBER (TaskID, EmployeeID) values ('TA3', 'EM3')
+--insert into MEMBER (TaskID, EmployeeID) values ('TA4', 'EM4')
+--insert into MEMBER (TaskID, EmployeeID) values ('TA5', 'EM5')
+
+--DROP TABLE TASK;
+--DROP TABLE EMPLOYEE;
+--DROP TABLE Comment;
+
+--SELECT * FROM EMPLOYEE;

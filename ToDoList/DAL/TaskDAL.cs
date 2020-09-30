@@ -24,7 +24,7 @@ namespace ToDoList.DAL
                 while (reader.Read())
                 {
                     Task task = new Task();
-                    task.ID = Convert.ToInt32(reader.GetString(0));
+                    task.ID = reader.GetInt32(0);
                     task.Name = reader.GetString(1);
                     task.OwnerId =Convert.ToInt32(reader.GetString(2));
                     task.StartDay = reader.GetDateTime(3);
@@ -45,7 +45,7 @@ namespace ToDoList.DAL
         public List<Task> GetTaskProgress()
         {
             List<Task> data = new List<Task>();
-            string query = "SELECT * FROM TASK WHERE Status = N'Chưa hoàn thành'";
+            string query = "SELECT * FROM TASK WHERE Status LIKE N'Chưa hoàn thành'";
             DAL.SQLHelper.DbConnection();
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -75,7 +75,7 @@ namespace ToDoList.DAL
         public List<Task> GetTaskDone()
         {
             List<Task> data = new List<Task>();
-            string query = "SELECT * FROM TASK WHERE Status = N'Hoàn thành'";
+            string query = "SELECT * FROM TASK WHERE Status LIKE N'Hoàn thành'";
             DAL.SQLHelper.DbConnection();
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -132,7 +132,7 @@ namespace ToDoList.DAL
             return data;
         }
 
-        public Task GetTask(string ID)
+        public Task GetTask(int ID)
         {
             Task task = new Task();
             DAL.SQLHelper.DbConnection();
@@ -150,7 +150,7 @@ namespace ToDoList.DAL
                 task.Description = reader["Description"].ToString();
                 task.Status = reader["Status"].ToString();
                 task.Visability = reader["Visability"].ToString();
-                //task.Attachment = reader["Attachment"].ToString();
+                task.Attachment = reader["Attachment"].ToString();
                 //task.Comment = reader["Comment"].ToString();
                 //task.Partner = reader["Partner"].ToString();
             }
@@ -160,8 +160,8 @@ namespace ToDoList.DAL
         public void AddTask(Task task)
         {
             DAL.SQLHelper.DbConnection();
-            string sql = "INSERT INTO TASK ( Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment, Comment, Partner) " +
-                "VALUES ( @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment, @Comment, @Partner)";
+            string sql = "INSERT INTO TASK ( Name, OwnerId, StartDay, Deadline, Description, Status, Visability, Attachment) " +
+                "VALUES ( @Name, @OwnerId, @StartDay, @Deadline, @Description, @Status, @Visability, @Attachment)";
             SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@Name", task.Name);
             cmd.Parameters.AddWithValue("@OwnerId", task.OwnerId);
@@ -171,8 +171,6 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@Status", task.Status);
             cmd.Parameters.AddWithValue("@Visability", task.Visability);
             cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
-            cmd.Parameters.AddWithValue("@Comment", task.Comment);
-            cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.ExecuteNonQuery();
         }
 
@@ -180,7 +178,7 @@ namespace ToDoList.DAL
         {
             DAL.SQLHelper.DbConnection();
             string sql = "UPDATE TASK SET " +
-                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visability = @Visability, Attachment = @Attachment, Comment = @Comment, Partner = @Partner " +
+                "Name = @Name, OwnerId = @OwnerId, StartDay = @StartDay, Deadline = @Deadline, Description = @Description, Status = @Status, Visability = @Visability, Attachment = @Attachment" +
                 " WHERE ID = @ID";
             SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@Name", task.Name);
@@ -191,8 +189,6 @@ namespace ToDoList.DAL
             cmd.Parameters.AddWithValue("@Status", task.Status);
             cmd.Parameters.AddWithValue("@Visability", task.Visability);
             cmd.Parameters.AddWithValue("@Attachment", task.Attachment);
-            cmd.Parameters.AddWithValue("@Comment", task.Comment);
-            cmd.Parameters.AddWithValue("@Partner", task.Partner);
             cmd.Parameters.AddWithValue("@ID", task.ID);
             cmd.ExecuteNonQuery();
         }
@@ -207,19 +203,22 @@ namespace ToDoList.DAL
             cmd.ExecuteNonQuery();
         }
 
-        public void ChangeStatusToDone(String ID)
+        public void ChangeStatusToDone(string ID)
         {
             DAL.SQLHelper.DbConnection();
-            string sql = "UPDATE TASK SET " +
-                "Status = N'Hoàn thành'" +
-                " WHERE ID = @ID";
+            string sql = "UPDATE TASK SET Status = N'Hoàn thành' WHERE ID = @ID";
             SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
             cmd.Parameters.AddWithValue("@ID", ID);
+            cmd.ExecuteNonQuery();
         }
 
-        public void ChangeStatusToInprogress()
+        public void ChangeStatusToInprogress(string ID)
         {
-
+            DAL.SQLHelper.DbConnection();
+            string sql = "UPDATE TASK SET Status = N'Chưa hoàn thành' WHERE ID = @ID";
+            SqlCommand cmd = new SqlCommand(sql, SQLHelper.db);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            cmd.ExecuteNonQuery();
         }
     }
 }

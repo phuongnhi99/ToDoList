@@ -17,7 +17,7 @@ namespace ToDoList.BLL
         }
 
 
-        public static Task GetTask(string TaskId)
+        public static Task GetTask(int TaskId)
         {
             return obj.GetTask(TaskId);
         }
@@ -58,9 +58,14 @@ namespace ToDoList.BLL
             obj.DeleteTask(task);
         }
 
-        public static void ChangeStatusToDone(String ID)
+        public static void ChangeStatusToDone(string ID)
         {
             obj.ChangeStatusToDone(ID);
+        }
+
+        public static void ChangeStatusToInprogress(string ID)
+        {
+            obj.ChangeStatusToInprogress(ID);
         }
     }
 }

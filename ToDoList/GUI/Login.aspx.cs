@@ -34,7 +34,9 @@ namespace ToDoList.GUI
                 {
                     Session["Email"] = txtEmail.Text;
                     Session["Password"] = txtPassword.Text;
-                    Response.Redirect("employeeview.aspx");
+
+                    Response.Redirect("TaskView.aspx");
+
                 }
             }
         }

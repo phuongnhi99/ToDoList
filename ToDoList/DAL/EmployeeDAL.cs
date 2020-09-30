@@ -99,7 +99,7 @@ namespace ToDoList.DAL
             SQLHelper.DbConnection();
             string query = "Select ID from EMPLOYEE where Email=@Email";
             SqlCommand cmd = new SqlCommand(query, SQLHelper.db);
-            cmd.Parameters.AddWithValue("@Emial", Email);
+            cmd.Parameters.AddWithValue("@Email", Email);
             SqlDataReader dr = cmd.ExecuteReader();
             {
                 if (dr.HasRows)
@@ -108,8 +108,7 @@ namespace ToDoList.DAL
                     {
                         return new Entity.Employee()
                         {
-                            ID = Convert.ToInt32(dr["ID"].ToString()),
-                            Email = dr["Email"].ToString(),                           
+                            ID = Convert.ToInt32(dr["ID"].ToString()),                         
                         };
                     }
                 }
@@ -200,5 +199,6 @@ namespace ToDoList.DAL
             }
             return 0;
         }
+       
     }
 }

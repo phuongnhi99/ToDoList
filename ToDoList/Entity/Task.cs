@@ -16,7 +16,5 @@ namespace ToDoList.Entity
         public string Status { get; set; }
         public string Visability { get; set; }
         public string Attachment { get; set; }
-        public string Comment { get; set; }
-        public string Partner { get; set; }
     }
 }
