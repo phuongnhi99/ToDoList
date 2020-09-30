@@ -285,3 +285,14 @@ footer
     border-top-right-radius: 5px;
     padding: 5px;
 }
+
+.edit-task {
+    //background-color:black;
+    margin: 5;
+    padding: 0;
+    height: 30%;
+    width: 8%;
+    margin-bottom: 0;
+    color: dimgrey;
+    box-shadow:none;
+}

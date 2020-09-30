@@ -72,11 +72,12 @@ namespace ToDoList.GUI
                     "<ul class=\"list-group list-group-flush\">" +
                         "<li class=\"card\" >" +
                                 "<div class=\"card-body input-group\">" +
+                                "<Button class='btn edit-task '><i class=\"fas fa-ellipsis-v\"></i></Button>" +
                                 "<div class=\"form-control bd\">" +
                                     task_progress.Name +
                                  "</div>" +
                                     "<div class=\"input-group-append\">" +
-                                        "<button name='btnInprogress' runat='server' value=" + task_progress.ID +" class=\"btn btn-change-status-inprogress\" type=\"submit\"><i class=\"fa fa-arrow-right\"></i></button>" +
+                                        "<button name='btnInprogress' runat='server' value=" + task_progress.ID + " class=\"btn btn-change-status-inprogress\" type=\"submit\"><i class=\"fa fa-arrow-right\"></i></button>" +
                                     "</div>" +
                                 "</div>" +
                             "</li>" +
@@ -88,12 +89,14 @@ namespace ToDoList.GUI
                         "<a name='editDone' runat='server' value=" + task_done.ID + " type='submit'>" +
                             "<li class=\"card\">" +
                                 "<div class=\"card-body input-group\">" +
+                                
                                     "<div class=\"input-group-append\">" +
                                         "<button name='btnDone' runat='server' value=" + task_done.ID + " class=\"btn btn-change-status-done\" type=\"submit\"><i class=\"fa fa-arrow-left\"></i></button>" +
                                     "</div>" +
                                     "<div class=\"form-control bd\">" +
                                         task_done.Name +
                                     "</div>" +
+                                    "<Button class='btn edit-task '><i class=\"fas fa-ellipsis-v\"></i></Button>" +
                                 "</div>" +
                             "</li>" +
                         "</a>" +

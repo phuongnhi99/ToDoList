@@ -13,7 +13,20 @@
                     <div class="card-header">
                         <h5 id="test" runat="server" class="card-title">IN PROGRESS</h5>
                     </div>
-                    <div id="progress" runat="server" class="card-body">                        
+                    <div id="progress" runat="server" class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="card">
+                                <div class="card-body input-group">
+                                    <div class="form-control bd">jjj</div>
+
+                                    <div class="input-group-append">
+                                        <button name='btnInprogress' runat='server' value="" class="btn btn-change-status-inprogress" type="submit">
+                                            <i class="fa fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="card-footer">
                         <button runat="server" id="newtask" onserverclick="newtask_ServerClick" class="btn add-btn"><i class="fa fa-plus"></i>ADD NEW TASK</button>
@@ -177,7 +190,7 @@
 
                                                 <div class="input-group-append">
                                                    
-                                                    <button id="addcomment" runat="server"  class="btn sent btn-dark" type="button">Button</button>
+                                                    <button id="addcomment" runat="server" onserverclick="addcomment_ServerClick"  class="btn sent btn-dark" type="button">Button</button>
                                             </div>
                                                     </div>
                                         </form>

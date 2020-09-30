@@ -175,6 +175,5 @@ namespace ToDoList.GUI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton addcomment;
-        protected global::System.Web.UI.HtmlControls.HtmlButton editInprogress;
     }
 }
