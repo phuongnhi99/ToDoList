@@ -45,9 +45,9 @@
     </div>
 
 
-    <div id="edit_cover" runat="server">
+    <div id="edit_cover" runat="server" visible="false">
         <div class="edit-cover">
-            <form id="jj">
+            <form>
                 <div class="edit-content card" runat="server">
                     <div class="card-header">
                         <button class="close" runat="server" onserverclick="btnClose_Clicks"><i class="fas fa-times"></i></button>
@@ -82,49 +82,45 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
-                                        <label for="inputCity">Partner</label>
-                                        <select id="inputState" class="form-control" multiple>
+                                        <label for="Partner">Partner</label>
+                                        <select runat="server" id="Partner" class="form-control" multiple>
                                             <option selected>Choose...</option>
-                                            <option>...</option>
+                                            <option>Chưa hoàn thành</option>
+                                            <option>Hoàn thành</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputState">Status</label>
-                                        <select id="inputState" class="form-control">
-                                            <option selected>Choose...</option>
-                                            <option>...</option>
-                                        </select>
+                                        <label for="File">File</label>
+                                        <input type="text" runat="server" class="form-control" id="File" placeholder="">
+                                    
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="inputZip">Visability</label>
-                                        <select id="inputState" class="form-control">
+                                        <label for="Visability">Visability</label>
+                                        <select runat="server" id="Visability" class="form-control">
                                             <option selected>Choose...</option>
-                                            <option>...</option>
+                                            <option>Public</option>
+                                            <option>Private</option>
                                         </select>
                                     </div>
-
                                 </div>
-
-
                                 <div class="form-group">
                                     <div class="form-group">
                                     <label for="fileHelp">File input</label>
                                      <asp:FileUpload ID="FileUpload1" runat="server" Width="348px" Height="27px" />
 
                                     </div>
-                                    <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-                                </div>
+                                 </div>
                                 <button type="submit" id="btnsave" runat="server" onserverclick="Unnamed_ServerClick" class="btn btn-primary">edit</button>
-                                <button type="submit" class="btn btn-primary">back</button>
+                                <button type="submit" id="backtask" runat="server" onserverclick="backtask_ServerClick" class="btn btn-primary">back</button>
                             </div>
 
 
 
 
 
-                                    <div class="col">
-                                        <div class="detailBox">
-                                            <div class="titleBox">
+                            <div class="col">
+                                <div class="detailBox">
+                                    <div class="titleBox">
                                         <label>Comment Box</label>
                                         <button type="button" class="close" aria-hidden="true">&times;</button>
                                     </div>
@@ -166,16 +162,11 @@
                                             </li>
                                         </ul>
                                         <form class="form-group" role="form">
-                                            <div class="input-group mb-6">
-                                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-
-                                                <div class="input-group-append">
-                                                   
-                                                    <button class="btn sent btn-dark" type="button">Button</button>
-
-                                                </div>
-
-
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="valuedescription" runat="server" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                
+                                                    <button id="addcomment" runat="server" onserverclick="addcomment_ServerClick" class="btn btn-outline-secondary" type="button">Button</button>
+                                                
                                             </div>
                                         </form>
                                     </div>
@@ -186,7 +177,7 @@
                         </div>
                     </div>
 
-<%--                    <div class="card-footer">hello</div>--%>
+                    <div class="card-footer">hello</div>
                 </div>
             </form>
 

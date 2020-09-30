@@ -164,7 +164,8 @@ namespace ToDoList.GUI
                         "</li>" +
                     "</ul>";
 
-            edit_cover.Visible = false;
+
+            //edit_cover.Visible = false;
         }
         public override void VerifyRenderingInServerForm(Control control)
         {
@@ -173,7 +174,7 @@ namespace ToDoList.GUI
         protected void btnClose_Clicks(object sender, EventArgs e)
         {
             if(edit_cover.Visible == true)
-            edit_cover.Visible = false;
+                edit_cover.Visible = false;
         }
 
 
@@ -181,6 +182,14 @@ namespace ToDoList.GUI
         {
             edit_cover.Visible = true;
             btnsave.InnerText = "ADD";
+
+            string id = "";
+            Task task = TaskBLL.GetTask(id);
+            inputName.Value = task.Name;
+            start_date.Value = Convert.ToString(task.StartDay);
+            deadline.Value = Convert.ToString(task.Deadline);
+            inputDescription.Value = task.Description;
+
         }
 
         protected void Unnamed_ServerClick(object sender, EventArgs e)
@@ -199,9 +208,7 @@ namespace ToDoList.GUI
                     Description = inputDescription.Value,
                     Attachment = FileUpload1.FileName,
                     Visability = Visability.Value,
-                    Status = Status.Value,
-                    Partner = Partner.Value,
-                    Comment = "",
+                    Status = "Chưa hoàn thành",
                 };
                 if (FileUpload1.HasFile)
                 {
@@ -216,30 +223,54 @@ namespace ToDoList.GUI
             {
                 string id = "";
                 Task t = TaskBLL.GetTask(id);
-                Task task = new Task()
-                {
-
-                    Name = inputName.Value,
-                    OwnerId = t.OwnerId,
-                    StartDay = Convert.ToDateTime(start_date.Value),
-                    Deadline = Convert.ToDateTime(deadline.Value),
-                    Description = inputDescription.Value,
-                    Attachment = FileUpload1.FileName,
-                    Visability = Visability.Value,
-                    Status = Status.Value,
-                    Partner = Partner.Value,
-                    Comment = "",
-                };
                 if (FileUpload1.HasFile)
                 {
                     string fileName = FileUpload1.FileName;
                     string filePath = Server.MapPath(@"File\" + fileName);
                     FileUpload1.SaveAs(filePath);
+                    Task task = new Task()
+                    {
+
+                        Name = inputName.Value,
+                        OwnerId = t.OwnerId,
+                        StartDay = Convert.ToDateTime(start_date.Value),
+                        Deadline = Convert.ToDateTime(deadline.Value),
+                        Description = inputDescription.Value,
+                        Attachment = FileUpload1.FileName,
+                        Visability = Visability.Value,
+                        Status = t.Status,
+                    };
+
+                    TaskBLL.EditTask(task);
+                    Page_Load(sender, e);
                 }
-                TaskBLL.EditTask(task);
-                Page_Load(sender, e);
+                else
+                {
+                    Task task = new Task()
+                    {
+
+                        Name = inputName.Value,
+                        OwnerId = t.OwnerId,
+                        StartDay = Convert.ToDateTime(start_date.Value),
+                        Deadline = Convert.ToDateTime(deadline.Value),
+                        Description = inputDescription.Value,
+                        Attachment = FileUpload1.FileName,
+                        Visability = Visability.Value,
+                        Status = t.Status,
+                    };
+
+                    TaskBLL.EditTask(task);
+                    Page_Load(sender, e);
+                }
+                
             }
 
+        }
+
+        protected void backtask_ServerClick(object sender, EventArgs e)
+        {
+            edit_cover.Visible = false;
+            Page_Load(sender, e);
         }
 
         //protected void hello(object sender, EventArgs e)
