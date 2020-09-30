@@ -40,14 +40,17 @@ namespace ToDoList.BLL
         {
             obj.AddEmp(employee);
         }
-
+        public static void updatePass(Entity.Employee employee)
+        {
+            obj.updatePass(employee);
+        }
         public static void updateEmp(Entity.Employee employee)
         {
             obj.updateEmp(employee);
         }
-        public static void delete(Entity.Employee employee)
+        public static void delete(string ID)
         {
-            obj.Delete(employee);
+            obj.Delete(ID);
         }
 
     }
