@@ -315,9 +315,10 @@ namespace ToDoList.GUI
         {
             string a = (string)Session.Contents["Email"];
             Entity.Employee idemp = EmployeeBLL.GetIDbyEmail(a);
+            int i = Convert.ToInt32(id_task.Value);
             Comment comment = new Comment()
             {
-                IdTask=1,
+                IdTask=i,
                 IdEmployee=idemp.ID,
                 Description=valuedescription.Value,
             };
