@@ -110,12 +110,9 @@
 
                                     <div class="form-group col-md-4">
                                          <div class="form-group ">
-                                        <label for="Status">Status</label>
-                                        <select runat="server" id="Status" class="selectpicker form-control">
-                                            <option>In Progress</option>
-                                            <option>Done</option>
-                                        </select>
-                                        </div>
+                                        <label for="File">File</label>
+                                             <input type="text" runat="server" class="form-control" id="File" placeholder="">
+                                     </div>
                                     </div>
 
                                     <div class="form-group col-md-4">

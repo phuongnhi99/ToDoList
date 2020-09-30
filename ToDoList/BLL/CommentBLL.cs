@@ -11,7 +11,7 @@ namespace ToDoList.BLL
     {
         private static CommentDAL obj = new CommentDAL();
 
-        public static List<Entity.Comment> GetAll()
+        public static List<Comment> GetAll()
         {
             return obj.GetAll();
         }

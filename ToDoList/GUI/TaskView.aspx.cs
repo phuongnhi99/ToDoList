@@ -36,9 +36,11 @@ namespace ToDoList.GUI
                     int editInprogress = Convert.ToInt32(Request.Form["editInprogress"]);
                     Task task = TaskBLL.GetTask(editInprogress);
                     inputName.Value = task.Name;
-                    start_date.Value = Convert.ToString(task.StartDay);
-                    deadline.Value = Convert.ToString(task.Deadline);
+                    start_date.Value = String.Format("{0:yyyy-MM-dd}", task.StartDay);
+                    deadline.Value = String.Format("{0:yyyy-MM-dd}", task.Deadline);
+                    //  deadline.Value = Convert.ToString(task.Deadline);
                     inputDescription.Value = task.Description;
+                    File.Value = task.Attachment;
                     id_task.Value = Request.Form["editInprogress"];
                     edit_cover.Visible = true;
                     btnsave.InnerText = "Edit";
@@ -49,9 +51,10 @@ namespace ToDoList.GUI
                     int editDone = Convert.ToInt32(Request.Form["editDone"]);
                     Task task = TaskBLL.GetTask(editDone);
                     inputName.Value = task.Name;
-                    start_date.Value = Convert.ToString(task.StartDay);
-                    deadline.Value = Convert.ToString(task.Deadline);
+                    start_date.Value = String.Format("{0:yyyy-MM-dd}", task.StartDay);
+                    deadline.Value = String.Format("{0:yyyy-MM-dd}", task.Deadline);
                     inputDescription.Value = task.Description;
+                    File.Value = task.Attachment;
                     id_task.Value = Request.Form["editDone"];
                     edit_cover.Visible = true;
                     btnsave.InnerText = "Edit";
@@ -62,9 +65,10 @@ namespace ToDoList.GUI
                     int editLate = Convert.ToInt32(Request.Form["editLate"]);
                     Task task = TaskBLL.GetTask(editLate);
                     inputName.Value = task.Name;
-                    start_date.Value = Convert.ToString(task.StartDay);
-                    deadline.Value = Convert.ToString(task.Deadline);
+                    start_date.Value = String.Format("{0:yyyy-MM-dd}", task.StartDay);
+                    deadline.Value = String.Format("{0:yyyy-MM-dd}", task.Deadline);
                     inputDescription.Value = task.Description;
+                    File.Value = task.Attachment;
                     id_task.Value = Request.Form["editLate"];
                     edit_cover.Visible = true;
                     btnsave.InnerText = "Edit";
@@ -159,7 +163,7 @@ namespace ToDoList.GUI
             DataSourceTask = taskProgress.ToList();
             DataSourceTask = taskDone.ToList();
             DataSourceTask = taskLate.ToList();
-            List<Entity.Comment> cmt = CommentBLL.GetAll();
+            List<Comment> cmt = CommentBLL.GetAll();
             DataSourceCmt = cmt.ToList();
             DataBind();
             foreach (Entity.Task task_progress in taskProgress)
